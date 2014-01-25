@@ -1,12 +1,14 @@
+from flask import render_template
 from app import app
 
 @app.route('/')
+@app.route('/index')
 def index():
-  return 'Index'
+  return render_template('index.html')
 
 @app.route('/impress')
 def impress():
-	return 'impress'
+	return 'll'
 
 @app.route('/privacy')
 def about_us():

@@ -1,0 +1,172 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 200;
+	font-size: 100%;
+
+	text-align: center;
+}
+
+h1 {
+	font-weight: 200;
+	font-size: 4em;
+	clear: both;
+}
+
+h3 {
+	font-weight: 200;
+	font-size: 2em;
+}
+
+footer div + div{
+	width: 800px;
+	height: 5px;
+	background-color: black;
+	margin-bottom: 20px;
+}
+
+.logo {
+	height: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+footer div {
+	clear: both;
+	height: 20px;
+}
+
+header {
+	text-align: right;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+header form {
+	float: right;
+}
+
+header input {
+	width: 100px;
+}
+
+.left {
+	float: left;
+}
+
+.text_left {
+	text-align: left;
+}
+
+.text_right {
+	text-align: right;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+button {
+	font-size: 1.2em;
+	border: none;
+	background-color: black;
+	color: white;
+	box-shadow: 2px 2px 2px grey;
+
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+
+}
+
+button:hover {
+	box-shadow: 2px 2px 2px red;
+
+	-webkit-transition:1s ease;
+	transition:1s ease;
+
+	background-color: red;
+
+	-webkit-transform:rotate(3deg);
+  transform:rotate(3deg);
+
+}
+
+a {
+	text-decoration: underline;
+	color: black;
+	font-weight: 400;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.info, .reg {
+	width: 400px;
+}
+
+.reg {
+	text-align: right;
+	float: right;
+}
+
+.info {
+	text-align: left;
+	float: left;
+}
+
+.content {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.colorful {
+	background-color: red;
+	color: white;
+}
+
+
+/*
+	Formular
+*/
+.f_select {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.f_100 {
+	width: 100px;
+}
+
+.f_200 {
+	width: 200px;
+}
+
+.radio{
+	margin: 10px 0;
+}
+
+.f_textarea {
+	resize:none;
+	margin-top: 5px;
+	width: 350px;
+}
+
+.f_label {
+	font-weight: 200;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.middle {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 10px;
+}
