@@ -33,12 +33,12 @@
 	<div class="reg">
 		<h3>Register</h3>	
 		<form id="f_reg" action="register" method="post">
-			<label class="f_label">Email</label> <input class="f_100" type="email" name="email"> <br>
-			<label class="f_label">Password (min. 10 digits)</label> <input class="f_100" type="password" name="password"> <br>
-			<label class="f_label">Confirm Password</label> <input class="f_100" type="password" name="password_confirm"> <br>
-			<label class="f_label">Name</label> <input class="f_100" type="text" name="name"> <br>
-			<label class="f_label">Surname</label> <input class="f_100" type="text" name="surname"> <br>
-			<label class="f_label">Date of Birth (YYYY.MM.DD)</label> <input class="f_100" type="date" name="dob"> <br>
+			<label class="f_label">Email</label> <input class="f_100" type="email" name="email" id="email"> <br>
+			<label class="f_label">Password (min. 8 characters)</label> <input class="f_100" type="password" name="password" id="password"> <br>
+			<label class="f_label">Confirm Password</label> <input class="f_100" type="password" name="password_confirm" id="confirm_password"> <br>
+			<label class="f_label">Name</label> <input class="f_100" type="text" name="name" id="name"> <br>
+			<label class="f_label">Surname</label> <input class="f_100" type="text" name="surname" id="surname"> <br>
+			<label class="f_label">Date of Birth (YYYY.MM.DD)</label> <input class="f_100" type="date" name="dob" id="dob"> <br>
 			
 			<label class="f_label">Gender</label>
 			<select class="f_100 f_select" name="gender">
@@ -120,13 +120,13 @@
 
 			<div id="privacy" class="right text_right">
 				I accept the privacy terms.
-				<input type="checkbox" name="privacy" value="yes">
+				<input type="checkbox" name="privacy" value="yes" id="privacy">
 			</div>
 			<div style="width=800px" class="clear"></div>
 
 	<!-- 			<button class="right" name="name" value="Delete" type="submit">Delete</button>
 			<button class="right" name="name" value="Change" type="submit">Change</button> -->
-			<button class="right" name="name" value="Signup" type="submit">Signup</button>
+			<button class="right" name="name" value="Signup" type="submit" id="register_button">Signup</button>
 			<!-- Check if checkbox is atviated -->
 		</form>
 
