@@ -1,6 +1,6 @@
-from flask import render_template, request
+from flask import render_template, request, flash, redirect, Markup
 from app import app
-from models import db
+from models import db, User
 
 @app.route('/')
 @app.route('/index')
@@ -29,7 +29,18 @@ def activate(token):
 
 @app.route('/register', methods = ['POST'])
 def register():
-	return request.form['name']
+	new_user = User(** (request.form.to_dict(flat=True))) # converting to normal dict
+
+	try:
+		db.session.add(new_user)
+		db.session.commit()
+	except:
+		message = Markup("Something went wrong. Please try again.")
+		flash(message)
+		return redirect('/')
+	message = Markup("You successfully registerd!")
+	flash(message)
+	return redirect('/')
 
 @app.route('/testdb')
 def testdb():

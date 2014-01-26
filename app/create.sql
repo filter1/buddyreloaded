@@ -1,0 +1,21 @@
+create table users (
+	uid int(11) auto_increment,
+	name varchar(100) not null,
+	surname varchar(100) not null,
+	email varchar(100) not null unique,
+	password_hash varchar(100) not null,
+	dob date not null,
+	gender char(1) not null,
+	faculty varchar(50) not null,
+	lang1 varchar(50),
+	lang2 varchar(50),
+	lang3 varchar(50),
+	remarks text,
+	rank int(1) default 0,
+	status int(1) default 0,
+	registration_date timestamp default current_timestamp,
+	last_login timestamp,
+	num_logins int(11) default 0,
+	token varchar(100),
+	primary key(id)
+)
