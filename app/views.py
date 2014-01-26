@@ -1,5 +1,6 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
+from models import db
 
 @app.route('/')
 @app.route('/index')
@@ -26,3 +27,13 @@ def admin():
 def activate(token):
 	return 'Token is %s' %token
 
+@app.route('/register', methods = ['POST'])
+def register():
+	return request.form['name']
+
+@app.route('/testdb')
+def testdb():
+  if db.session.query("1").from_statement("SELECT 1").all():
+    return 'It works.'
+  else:
+    return 'Something is broken.'
