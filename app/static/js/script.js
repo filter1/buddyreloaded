@@ -22,8 +22,13 @@ $(document).ready(function() {
       var nameVal = $("#name").val();
       var surnameVal = $("#surname").val();
       var dobVal = $("#dob").val();
-      var privacyVal = $("#privacy").val();
       var choiceVal = $('input[name="status"]:checked').val();  
+      var privacy = $('#privacy').is(":checked");
+      var train = $('#train').is(":checked");
+
+      console.log('LOL');
+      console.log(privacy);
+      console.log($('#privacy').is(":checked"));
 
       // if (passwordVal == '' || passwordVal.length < 8) {
       //     $("#password").after('<div class="error">Please enter a password with at least 8 characters long.</div>');
@@ -46,12 +51,16 @@ $(document).ready(function() {
       // } else if ( validateDate(dobVal)== false) {
       //     $("#dob").after('<div class="error">Please enter a valid.</div>');
       //     hasError = true;
-      // } else if (privacyVal == '') {
-      // 	  $("#privacy").after('<div class="error">Please check privacy.</div>');
-      //     hasError = true;
-      // }
-      if (choiceVal == null) {
+      // } else
+      if (privacy == false) {
+      	  $("#privacy").after('<div class="error">Please check privacy.</div>');
+          hasError = true;
+      }
+      else if (choiceVal == null) {
       	  $('input[name="status"]').after('<div class="error">Please pick on.</div>');
+          hasError = true;
+      } else if (choiceVal == '1' && train == false) {
+      	  $("#train").after('<div class="error">Please check the box.</div>');
           hasError = true;
       }
 
