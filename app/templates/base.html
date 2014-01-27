@@ -10,38 +10,45 @@
   </head>
   <body>
     <header>
-      <!--    <div>
-        <a href="">German</a>
-        |
-        <a href="">English</a>
-      </div> -->
+      <div class="header_min">
+        <!--    <div>
+          <a href="">German</a>
+          |
+          <a href="">English</a>
+        </div> -->
 
-    {% if user is defined %}
-      <div>Hello, {{user.name}}! <a href="/logout">Logout</a> </div>
-      <!-- REALLY SUCKS -->
-
-
-    {% else %}
-      <form action="login" method="post">
-        <div>
-          Email <input type="email" name="email">
-        </div>
-        <div>
-          Password <input type="password" name="password">
-        </div>
-        <button name="name" value="value" type="submit">Login</button>
-      </form>
-    {% endif %}
+      {% if user is defined %}
+        <div>Hello, {{user.name}}! <a href="/logout">Logout</a> </div>
+        <!-- REALLY SUCKS -->
 
 
-    
-      <div class="clear"></div>
+      {% else %}
+        <form action="login" method="post">
+          <div>
+            Email <input type="email" name="email">
+          </div>
+          <div>
+            Password <input type="password" name="password">
+          </div>
+          <button name="name" value="value" type="submit">Login</button>
+        </form>
+      {% endif %}
+
+
+      
+        <div class="clear"></div>
+      </div>
+      <img src="/static/img/buddy_header.png">
     </header>
+
+
 
     <div class="flashes">
       {% for message in get_flashed_messages() %}
-        {{ message }}
-      {% endfor %}
+        <span class="colorful">
+          {{ message }}
+        </span>
+        {% endfor %}
     </div>
 
     {% block content %}{% endblock %}

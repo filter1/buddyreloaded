@@ -78,11 +78,13 @@ def logout():
 	session.pop('uid', None)
 	return redirect('/')
 
-@app.route('/change_matchable', methods['POST'])
-def change_matchable:
+@app.route('/change_matchable', methods = ['POST'])
+def change_matchable():
 	if 'uid' not in session:
 		return redirect('/')
 
 	uid = session['uid']
 	user = User.query.get(uid)
+	user.matchable = not user.matchable
+	db.session.commit()
 	return redirect('/')

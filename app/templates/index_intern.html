@@ -28,101 +28,23 @@
 		</div>
 
 		<br>
-		<div>
+		<div>Status:
 			{% if user.matchable == True %}
-				You are current registred for the Buddy Programm. It is possible that you are matched soon.
+				Active. Waiting to get matched.
+				<form action="change_matchable" method="post">
+					<button class="button_small" type="submit">Deactivate</button>
+				</form>
 			{% else %}
-				You are current NOT registred for the Buddy Programm. It is not possible that you are matched soon.
+				Not active. You cannot get matched.
+				<form action="change_matchable" method="post">
+					<button class="button_small" type="submit">Activate</button>
+				</form>
 			{% endif %}
-			<form action="change_matchable">
-					<button type="submit">Change</button>
-			</form>
-
 		</div>
 
-
-<!-- 		<form id="f_reg" action="register" method="post">
-			<label class="f_label">Email</label> <input class="f_100" type="email" name="email" id="email"> <br>
-			<label class="f_label">Password (min. 8 characters)</label> <input class="f_100" type="password" name="password" id="password"> <br>
-			<label class="f_label">Confirm Password</label> <input class="f_100" type="password" name="password_confirm" id="confirm_password"> <br>
-			<label class="f_label">Name</label> <input class="f_100" type="text" name="name" id="name"> <br>
-			<label class="f_label">Surname</label> <input class="f_100" type="text" name="surname" id="surname"> <br>
-			<label class="f_label">Date of Birth (YYYY.MM.DD)</label> <input class="f_100" type="date" name="dob" id="dob"> <br>
-			
-			<label class="f_label">Gender</label>
-			<select class="f_100 f_select" name="gender">
-				<option value="m">male</option>
-				<option value="w">female</option>
-				<option value="u">unspecified</option>
-			</select>
-
-		  <div>
-			  <label class="f_label">Faculty of</label>
-			  <select class="f_100 f_select" name="faculty">
-				  <option value="fmb">Mechanical Engineering<br></option>
-				  <option value="fvst">Process and System Engineering<br></option>
-				  <option value="feit">Electrical Engineering and Information Technology<br></option>
-				  <option value="fin">Computer Science<br></option>
-				  <option value="fma">Mathemathics<br></option>
-				  <option value="fnw">Natural Science<br></option>
-				  <option value="fme">Medicine<br></option>
-				  <option value="fhw">Humanities, Social Sciences and Education<br></option>
-				  <option value="fww">Economics and Management<br></option>
-			  </select>
-		  </div>			  
-		  <div>
-		  	<label class="f_label">Choose up to 3 languages</label>
-				<select class="f_100 f_select" name="lang1">
-					<option value="None">None</option>
-				</select>
-			</div>
-
-			<div>
-				<label class="f_label"> </label>
-				<select class="f_100 f_select" name="lang2">
-					<option value="None">None</option>
-				</select>
-			</div>
-
-			<div>
-				<label class="f_label"> </label>
-				<select class="f_100 f_select" name="lang3">
-					Language 3
-					<option value="None">None</option>
-
-				</select>
-			</div>
-
-			<textarea placeholder="You can add additional information about yourself, if you really like." class="f_textarea" name="remarks" rows="3"></textarea>
-
-		  <div class="clear"></div>
-
-		  <div class="middle"><label>Please Choose</label></div>
-			<div id="radio_inc" class="f_200 radio right">
-				<input type="radio" name="status" value="0">
-				I am an incoming Student, who is coming to Magdeburg or just arrived in Magdeburg
-			</div>
-			<div id="radio_pre" class="f_200 radio">
-				<input type="radio" name="status" value="1">
-				I am a present Student and want to help people, who are coming from abroad to Magdeburg. <br>
-			</div>
-
-			<div id="train" class="right text_right">
-				I know, that I have to visit the Training at 28.2.2014, to be part of the buddy programm.
-				<input type="checkbox" name="training" value="yes" id="train_cb">
-			</div>
-
-
-			<div id="privacy" class="right text_right">
-				I accept the privacy terms.
-				<input type="checkbox" name="privacy" value="yes" id="privacy_cb">
-			</div>
-			<div style="width=800px" class="clear"></div>
-
-			<button class="right" name="name" value="Signup" type="submit" id="register_button">Signup</button>
-
-		</form> -->
-
+	<div>
+		<span class='colorful'>You do not have a buddy yet.</span>
+	</div>
 	<div class="clear"></div>
 
 </div>
