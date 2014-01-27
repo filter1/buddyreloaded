@@ -1,4 +1,3 @@
-#config
 
 
 # email server
@@ -16,6 +15,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 mail = Mail(app)
 
+#config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:lollol@localhost/development'
 app.secret_key = 'why would I tell you my secret key?'
 
