@@ -18,7 +18,11 @@
         </div> -->
 
       {% if user is defined %}
-        <div>Hello, {{user.name}}! <a href="./logout">Logout</a> </div>
+<!--         <div>Hello, {{user.name}}! <a href="./logout">Logout</a> </div> -->
+        <form method="post" action="./logout">
+          Hello, {{user.name}}!
+          <button type="submit" class="button_small">Logout</button>
+        </form>
         <!-- REALLY SUCKS -->
 
 
@@ -30,7 +34,7 @@
           <div>
             Password <input type="password" name="password">
           </div>
-          <button name="name" value="value" type="submit">Login</button>
+          <button class="button_big" name="name" value="value" type="submit">Login</button>
         </form>
       {% endif %}
 
@@ -46,7 +50,9 @@
     <div class="flashes">
       {% for message in get_flashed_messages() %}
 
+        <span>
           {{ message }}
+        </span>  
 
         {% endfor %}
     </div>

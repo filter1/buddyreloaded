@@ -2,8 +2,9 @@
 {% block right %}
 
 <div class="reg">
-		<h3>Your Registration</h3>
+		<h3>Dashboard</h3>
 		<div>
+			<div class="colorful_div"><span class='colorful'>Your Data</span></div>
 			<div>Name: {{ user.name }}</div>
 			<div>Surname: {{ user.surname }}</div>
 			<div>Email: {{ user.email }}</div>
@@ -27,11 +28,11 @@
 			It is not possible to change your data here. Please write us an Email to <a href="mailto:contact@buddy-md.de">contact@buddy-md.de</a> and we will manually change it for you.
 		</div>
 
-		<br>
-		<div>Status:
+		<div>
+			<div class="colorful_div"><span class='colorful'>Status</span></div>
 			{% if user.matchable == True %}
 				Active. Waiting to get matched.
-				<form action="change_matchable" method="post">
+				<form action="change_matchable right" method="post">
 					<button class="button_small" type="submit">Deactivate</button>
 				</form>
 			{% else %}
@@ -43,7 +44,8 @@
 		</div>
 
 	<div>
-		<span class='colorful'>You do not have a buddy yet.</span>
+		<div class="colorful_div"><span class='colorful'>Your Buddy</span></div>
+		You do not have a buddy yet.
 	</div>
 	<div class="clear"></div>
 

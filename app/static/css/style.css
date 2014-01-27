@@ -8,19 +8,19 @@ body {
 
 h1 {
 	font-weight: 200;
-	font-size: 4em;
+	font-size: 5em;
 	clear: both;
 }
 
 h3 {
 	font-weight: 200;
-	font-size: 2em;
+	font-size: 3em;
 }
 
 footer div + div{
 	width: 760px;
 	height: 5px;
-	background-color: black;
+	background-color: #2b406d;
 	margin-bottom: 20px;
 }
 
@@ -66,6 +66,11 @@ header input {
 	text-align: right;
 }
 
+.text_center {
+	text-align: center;
+}
+
+
 .right {
 	float: right;
 }
@@ -75,11 +80,20 @@ header input {
 }
 
 .button_small{
-	font-size: 0.9em;
+	font-size: 1em;
 	padding: 2px;
+	background-color: white;
+	color: #2b406d;
+	border: none;
 }
 
-button {
+.button_small:hover{
+
+	/*border-botom: 2px solid #2b406d;*/
+	text-decoration: underline;
+}
+
+.button_big {
 	font-size: 1.2em;
 	border: none;
 	background-color: #2b406d;
@@ -92,7 +106,7 @@ button {
 
 }
 
-button:hover {
+.button_big:hover {
 	box-shadow: 5px 5px 10px grey;
 
 	-webkit-transition:3s linear;
@@ -106,15 +120,16 @@ button:hover {
 }
 
 a {
-	text-decoration: underline;
-	color: black;
+	text-decoration: none;
+	color: #2b406d;
 	font-weight: 400;
+
 }
 
 a:hover {
-	text-decoration: none;
-	background-color: black;
-	color: white;
+	text-decoration: underline;
+/*	background-color: black;*/
+	/*color: grey;*/
 }
 
 .info, .reg {
@@ -144,9 +159,13 @@ a:hover {
 	font-size: 1.2em;
 	background-color: 2b406d;
 
+
 /*	text-shadow: 2px 2px 10px #2b406d;*/
 }
 
+.colorful_div{
+	margin: 1em 0;
+}
 
 /*
 	Formular
@@ -180,12 +199,6 @@ a:hover {
 	margin-bottom: 5px;
 }
 
-.middle {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	margin-top: 10px;
-}
 
 .error {
 	color: red;
@@ -194,4 +207,7 @@ a:hover {
 .flashes{
 	height: 20px;
 	padding-top: 5px;
+/*	font-size: 2em;*/
+	font-weight: 400;
+
 }
