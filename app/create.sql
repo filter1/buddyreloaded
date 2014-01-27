@@ -16,7 +16,7 @@ create table users (
 	registration_date timestamp default current_timestamp,
 	last_login timestamp,
 	num_logins int(11) default 0,
-	token varchar(100),
+	token varchar(100) unique,
 	matchable boolean,
 	primary key(uid)
 )

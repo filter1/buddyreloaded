@@ -1,6 +1,7 @@
 from flask import render_template, request, flash, redirect, Markup, session
 from app import app
 from models import db, User
+from mails import send_token
 
 @app.route('/')
 @app.route('/index.html')
@@ -28,22 +29,39 @@ def contac():
 def admin():
 	return 'Admin'
 
-@app.route('/activate/<token>')
-def activate(token):
-	return 'Token is %s' %token
+@app.route('/token/<token_str>')
+def token(token_str):
+	user = User.query.filter_by(token = token_str).first()
+	message = "LOL"
+
+
+	if user == None:
+		message = Markup('Something with the token went wrong.')
+		return redirect('/')
+	else:
+		user.token = None
+		db.session.commit()
+		session['uid'] = user.uid #login
+		message = Markup('Successfully activated the account.')
+
+	flash(message)
+	return redirect('/')
 
 @app.route('/register', methods = ['POST'])
 def register():
 	new_user = User(** (request.form.to_dict(flat=True))) # converting to normal dict
 
 	# trying
-	try:
-		db.session.add(new_user)
-		db.session.commit()
-	except:
-		message = Markup("Something went wrong. Please try again.")
-		flash(message)
-		return redirect('/')
+	# try:
+	db.session.add(new_user)
+	db.session.commit()
+
+	send_token(new_user.name, new_user.email, new_user.token)
+	# except Exception, e:
+	# 	message = Markup("Something went wrong. Please try again:" + str(e))
+	# 	flash(message)
+		# return redirect('/')
+
 	message = Markup("You successfully registerd!")
 	flash(message)
 	return redirect('/')
@@ -62,8 +80,11 @@ def login():
 
 		if user != None:
 			if user.check_password(request.form['password']):
-				session['uid'] = user.uid
-				message = Markup('You successfully logged it')
+				if user.token == None:
+					session['uid'] = user.uid
+					message = Markup('You successfully logged it')
+				else:
+					message = Markup('Please activate your account and vist the link which we send to your email. Check your Emails(Junk Folder).')
 			else:
 				message = Markup('Your password is incorrect.')
 		else:

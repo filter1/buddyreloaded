@@ -1,5 +1,7 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
+
+import uuid
  
 db = SQLAlchemy()
  
@@ -22,7 +24,7 @@ class User(db.Model):
   registration_date = db.Column(db.DateTime)
   last_login = db.Column(db.DateTime)
   num_logins = db.Column(db.Integer, default=0)
-  token = db.Column(db.String(100))
+  token = db.Column(db.String(100), unique=True)
   matchable = db.Column(db.Boolean, default=True)
 
 
@@ -39,7 +41,8 @@ class User(db.Model):
     self.lang3 = dict['lang3']
     self.remarks = dict['remarks']
     self.status = dict['status']
-     
+    self.token = str(uuid.uuid4())
+ 
   def set_password(self, password):
     self.password_hash = generate_password_hash(password)
    

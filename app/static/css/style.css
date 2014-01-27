@@ -95,7 +95,7 @@ button {
 button:hover {
 	box-shadow: 2px 2px 2px red;
 
-	-webkit-transition:1s ease;
+	-webkit-transition:3s linear;
 	transition:1s ease;
 
 /*	background-color: red;*/

@@ -1,0 +1,4 @@
+Dear {{name}},
+please visit this link to finish the registration: {{url}}
+Greeting
+Buddy Programm Team
