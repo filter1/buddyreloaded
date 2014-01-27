@@ -1,10 +1,12 @@
+import os
+
 # email server
-MAIL_SERVER = 'smtp.googlemail.com'
-MAIL_PORT = 465
+MAIL_SERVER = 'triangulum.uberspace.de'
+MAIL_PORT = 587
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
-MAIL_USERNAME = 'johannes.filter'
-MAIL_PASSWORD = ''
+MAIL_USERNAME = os.environ.get('EMAIL_USER')
+MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
 from flask import Flask
 from flask.ext.mail import Mail
