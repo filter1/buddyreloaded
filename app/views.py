@@ -80,7 +80,7 @@ def login():
 
 		if user != None:
 			if user.check_password(request.form['password']):
-				if user.token == None:
+				if user.token == None: # check if activated
 					session['uid'] = user.uid
 					message = Markup('You successfully logged it')
 				else:
