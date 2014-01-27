@@ -1,7 +1,3 @@
-function logout(){
-  $.post("/logout");  //Your values here..
-}
-
 $(document).ready(function() {
 
     $('#train').hide();
