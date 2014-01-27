@@ -10,7 +10,7 @@ def send_email(subject, sender, recipients, text_body, html_body):
 
 def send_token(name, email, token):
     send_email("[BUDDY-MD] Registration",
-        "noreply@budd-md.de",
+        "noreply@buddy-md.de",
         [email],
         render_template("email_token.txt", 
             name = name, token = token, url = 'http://www.buddy-md.de/token/' + str(token)),

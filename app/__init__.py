@@ -3,10 +3,12 @@ import os
 # email server
 MAIL_SERVER = 'triangulum.uberspace.de'
 MAIL_PORT = 587
-MAIL_USE_TLS = False
-MAIL_USE_SSL = True
-MAIL_USERNAME = os.environ.get('EMAIL_USER')
-MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+MAIL_USE_TLS = True
+MAIL_USE_SSL = False
+#MAIL_USERNAME = os.environ.get('EMAIL_USER')
+#MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+MAIL_USERNAME = 'buddies'
+MAIL_PASSWORD = 'Geyb-Dab-jUd-tAm-foo'
 
 from flask import Flask
 from flask.ext.mail import Mail
