@@ -5,15 +5,11 @@ MAIL_SERVER = 'smtp.triangulum.uberspace.de'
 MAIL_PORT = 587
 MAIL_USE_TLS = True
 MAIL_USE_SSL = False
-<<<<<<< HEAD
+
 #MAIL_USERNAME = os.environ.get('EMAIL_USER')
 #MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 MAIL_USERNAME = 'buddies'
 MAIL_PASSWORD = 'Geyb-Dab-jUd-tAm-foo'
-=======
-MAIL_USERNAME = os.environ.get('EMAIL_USER')
-MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
->>>>>>> chaning color.
 
 from flask import Flask
 from flask.ext.mail import Mail
