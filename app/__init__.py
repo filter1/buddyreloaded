@@ -20,7 +20,7 @@ mail = Mail(app)
 
 #config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://buddies:NabnuvwazsuorvAnErc2@localhost/buddies_buddy'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:lollol@localhost/development'
+
 
 
 app.secret_key = 'why would I tell you my secret key?'
