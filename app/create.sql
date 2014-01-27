@@ -12,10 +12,11 @@ create table users (
 	lang3 varchar(50),
 	remarks text,
 	rank int(1) default 0,
-	status int(1) default 0,
+	status char(1) not null,
 	registration_date timestamp default current_timestamp,
 	last_login timestamp,
 	num_logins int(11) default 0,
 	token varchar(100),
-	primary key(id)
+	matchable boolean,
+	primary key(uid)
 )

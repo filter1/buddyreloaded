@@ -18,11 +18,13 @@ class User(db.Model):
   lang3 = db.Column(db.String(50))
   remarks = db.Column(db.Text)
   rank = db.Column(db.Integer, default=0)
-  status = db.Column(db.Integer, nullable=False)
+  status = db.Column(db.String(1), nullable=False)
   registration_date = db.Column(db.DateTime)
   last_login = db.Column(db.DateTime)
   num_logins = db.Column(db.Integer, default=0)
   token = db.Column(db.String(100))
+  matchable = db.Column(db.Boolean, default=True)
+
 
   def __init__(self, **dict):
     self.name = dict['name'].title()

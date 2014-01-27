@@ -16,16 +16,24 @@
         <a href="">English</a>
       </div> -->
 
+    {% if user is defined %}
+      <div>Hello, {{user.name}}! <a href="/logout">Logout</a> </div>
+      <!-- REALLY SUCKS -->
 
-      <form action="#" method="post">
+
+    {% else %}
+      <form action="login" method="post">
         <div>
-          Email <input type="email" name="login">
+          Email <input type="email" name="email">
         </div>
         <div>
           Password <input type="password" name="password">
         </div>
         <button name="name" value="value" type="submit">Login</button>
       </form>
+    {% endif %}
+
+
     
       <div class="clear"></div>
     </header>
