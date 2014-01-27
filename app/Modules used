@@ -1,0 +1,4 @@
+Modules used:
+
+Flask-Mail
+Flask-SQLAlchemy
