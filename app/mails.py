@@ -13,6 +13,6 @@ def send_token(name, email, token):
         "noreply@buddy-md.de",
         [email],
         render_template("email_token.txt", 
-            name = name, token = token, url = 'http://www.buddy-md.de/token/' + str(token)),
+            name = name, token = token, url = 'http://buddy-md.de/token/' + str(token)),
         render_template("email_token.html", 
-            name = name, token = token, url = 'http://www.buddy-md.de/token/' + str(token)))
+            name = name, token = token, url = 'http://buddy-md.de/token/' + str(token)))
