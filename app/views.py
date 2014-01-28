@@ -62,7 +62,7 @@ def register():
 	# 	flash(message)
 		# return redirect('/')
 
-	message = Markup("You successfully registerd!")
+	message = Markup("You successfully registred. Now check your emails and activate the account!")
 	flash(message)
 	return redirect('/')
 
@@ -82,13 +82,13 @@ def login():
 			if user.check_password(request.form['password']):
 				if user.token == None: # check if activated
 					session['uid'] = user.uid
-					message = Markup('You successfully logged it')
+					message = Markup('You successfully logged in.')
 				else:
 					message = Markup('Please activate your account and vist the link which we send to your email. Check your Emails(Junk Folder).')
 			else:
 				message = Markup('Your password is incorrect.')
 		else:
-			message = Markup('We did not find your email.')
+			message = Markup('We did not find your email adress.')
 	except Exception, e:
 		message = str(e)
 	flash(message)
