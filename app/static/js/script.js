@@ -2,11 +2,11 @@ $(document).ready(function() {
 
     $('#train').hide();
 
-    $('#radio_pre').click(function() {
+    $('#radio_pre input').click(function() {
        $('#train').show();
     });
 
-    $('#radio_inc').click(function() {
+    $('#radio_inc input').click(function() {
        $('#train').hide();
     });
 
@@ -51,13 +51,17 @@ $(document).ready(function() {
       } else if (choiceVal == null) {
       	  $('input[name="status"]').after('<div class="error">Please pick on.</div>');
           hasError = true;
-      } else if (choiceVal == '1' && train == false) {
+      } else if (choiceVal == 'p' && train == false) {
       	  $("#train_cb").after('<div class="error">Please check the box.</div>');
           hasError = true;
       }
       if(hasError == true) {return false;}
 		});
 
+});
+
+$(window).load(function(){
+  setTimeout(function(){ $('.flashes span').fadeOut() }, 10000);
 });
 
 function validateEmail(email) { 

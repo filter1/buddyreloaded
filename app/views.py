@@ -2,28 +2,29 @@ from flask import render_template, request, flash, redirect, Markup, session
 from app import app
 from models import db, User
 from mails import send_token
+from lang import lang_array
 
 @app.route('/')
 @app.route('/index.html')
 def index():
 	if 'uid' not in session:
-		return render_template('index_reg.html')
+		return render_template('index_reg.html', lang=lang_array)
 
 	uid = session['uid']
 	user = User.query.get(uid)
 	return render_template('index_intern.html', user=user)
 
-@app.route('/impress')
+@app.route('/impress.html')
 def impress():
-	return 'll'
+	return render_template('impress.html')
 
-@app.route('/privacy')
+@app.route('/privacy.html')
 def about_us():
-	return 'privacy'
+	return render_template('privacy.html')
 
-@app.route('/contact')
+@app.route('/contact.html')
 def contac():
-	return 'contac '
+	return render_template('contact.html')
 
 @app.route('/admin')
 def admin():
@@ -32,8 +33,6 @@ def admin():
 @app.route('/token/<token_str>')
 def token(token_str):
 	user = User.query.filter_by(token = token_str).first()
-	message = "LOL"
-
 
 	if user == None:
 		message = Markup('Something with the token went wrong.')
@@ -62,7 +61,7 @@ def register():
 	# 	flash(message)
 		# return redirect('/')
 
-	message = Markup("You successfully registerd!")
+	message = Markup("You successfully registred. Now check your emails and activate the account!")
 	flash(message)
 	return redirect('/')
 
@@ -82,13 +81,13 @@ def login():
 			if user.check_password(request.form['password']):
 				if user.token == None: # check if activated
 					session['uid'] = user.uid
-					message = Markup('You successfully logged it')
+					message = Markup('You successfully logged in.')
 				else:
-					message = Markup('Please activate your account and vist the link which we send to your email. Check your Emails(Junk Folder).')
+					message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.')
 			else:
 				message = Markup('Your password is incorrect.')
 		else:
-			message = Markup('We did not find your email.')
+			message = Markup('We did not find your email adress.')
 	except Exception, e:
 		message = str(e)
 	flash(message)

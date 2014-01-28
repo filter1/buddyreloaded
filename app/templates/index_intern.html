@@ -4,9 +4,9 @@
 <div class="reg">
 		<h3>Dashboard</h3>
 		<div>
-			<div class="colorful_div"><span class='colorful'>Your Data</span></div>
-			<div>Name: {{ user.name }}</div>
-			<div>Surname: {{ user.surname }}</div>
+			<div class="margin_top_bot"><span class='colorful'>Your Data</span></div>
+			<div>First Name: {{ user.name }}</div>
+			<div>Last Name: {{ user.surname }}</div>
 			<div>Email: {{ user.email }}</div>
 			<div>Date of Bith: {{ user.dob }}</div>
 			<div>Gender: {{ user.gender }}</div>
@@ -29,7 +29,7 @@
 		</div>
 
 		<div>
-			<div class="colorful_div"><span class='colorful'>Status</span></div>
+			<div class="margin_top_bot"><span class='colorful'>Status</span></div>
 			{% if user.matchable == True %}
 				Active. Waiting to get matched.
 				<form action="change_matchable right" method="post">
@@ -44,7 +44,7 @@
 		</div>
 
 	<div>
-		<div class="colorful_div"><span class='colorful'>Your Buddy</span></div>
+		<div class="margin_top_bot"><span class='colorful'>Your Buddy</span></div>
 		You do not have a buddy yet.
 	</div>
 	<div class="clear"></div>
