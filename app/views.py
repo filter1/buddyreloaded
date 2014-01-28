@@ -32,8 +32,6 @@ def admin():
 @app.route('/token/<token_str>')
 def token(token_str):
 	user = User.query.filter_by(token = token_str).first()
-	message = "LOL"
-
 
 	if user == None:
 		message = Markup('Something with the token went wrong.')
@@ -84,7 +82,7 @@ def login():
 					session['uid'] = user.uid
 					message = Markup('You successfully logged in.')
 				else:
-					message = Markup('Please activate your account and vist the link which we send to your email. Check your Emails(Junk Folder).')
+					message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.')
 			else:
 				message = Markup('Your password is incorrect.')
 		else:
