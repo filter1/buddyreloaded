@@ -2,28 +2,29 @@ from flask import render_template, request, flash, redirect, Markup, session
 from app import app
 from models import db, User
 from mails import send_token
+from lang import lang_array
 
 @app.route('/')
 @app.route('/index.html')
 def index():
 	if 'uid' not in session:
-		return render_template('index_reg.html')
+		return render_template('index_reg.html', lang=lang_array)
 
 	uid = session['uid']
 	user = User.query.get(uid)
 	return render_template('index_intern.html', user=user)
 
-@app.route('/impress')
+@app.route('/impress.html')
 def impress():
-	return 'll'
+	return render_template('impress.html')
 
-@app.route('/privacy')
+@app.route('/privacy.html')
 def about_us():
-	return 'privacy'
+	return render_template('privacy.html')
 
-@app.route('/contact')
+@app.route('/contact.html')
 def contac():
-	return 'contac '
+	return render_template('contact.html')
 
 @app.route('/admin')
 def admin():
