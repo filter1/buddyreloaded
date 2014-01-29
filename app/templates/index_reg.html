@@ -5,23 +5,22 @@
 		<h3>Register</h3>
 		<div class="margin_top_bot"><span class="colorful">Please Fill In The Form</span></div>
 		<form id="f_reg" action="register" method="post">
-			<label class="f_label">Email</label> <input class="f_100" type="email" name="email" id="email"> <br>
-			<label class="f_label">Password (min. 8 characters)</label> <input class="f_100" type="password" name="password" id="password"> <br>
-			<label class="f_label">Confirm Password</label> <input class="f_100" type="password" name="password_confirm" id="confirm_password"> <br>
-			<label class="f_label">First Name</label> <input class="f_100" type="text" name="name" id="name"> <br>
-			<label class="f_label">Last Name</label> <input class="f_100" type="text" name="surname" id="surname"> <br>
-			<label class="f_label">Date Of Birth (YYYY.MM.DD)</label> <input class="f_100" type="text" name="dob" id="dob" value="1984.12.30"> <br>
+			<label>Email</label> <input type="email" name="email" id="email"> <br>
+			<label>Password (min. 8 characters)</label> <input type="password" name="password" id="password"> <br>
+			<label>Confirm Password</label> <input type="password" name="password_confirm" id="confirm_password"> <br>
+			<label>First Name</label> <input type="text" name="name" id="name"> <br>
+			<label>Last Name</label> <input type="text" name="surname" id="surname"> <br>
+			<label>Date Of Birth (YYYY.MM.DD)</label> <input type="text" name="dob" id="dob" value="1984.12.30"> <br>
 			
-			<label class="f_label">Gender</label>
-			<select class="f_100 f_select" name="gender">
+			<label>Gender</label>
+			<select name="gender">
 				<option value="m">male</option>
 				<option value="w">female</option>
 				<option value="u">unspecified</option>
 			</select>
-
-		  <div>
-			  <label class="f_label">Faculty of</label>
-			  <select class="f_100 f_select" name="faculty">
+			<br>
+			  <label>Faculty of</label>
+			  <select name="faculty">
 				  <option value="Mechanical Engineering">Mechanical Engineering<br></option>
 				  <option value="Process and System Engineering">Process and System Engineering<br></option>
 				  <option value="Electrical Engineering and Information Technology">Electrical Engineering and Information Technology<br></option>
@@ -32,39 +31,39 @@
 				  <option value="Humanities, Social Sciences and Education">Humanities, Social Sciences and Education<br></option>
 				  <option value="Economics and Management">Economics and Management<br></option>
 			  </select>
-		  </div>			  
+
 		  <div id="sec_lang">
-		  	<label class="f_label">Choose up to 3 languages</label>
-				<select class="f_100 f_select" name="lang1">
+		  	<label>Choose up to 3 languages</label>
+				<select name="lang1">
 					<option value="None">None</option>
 
 					{% for l in lang %}
-						<option value= {{l}} >{{l}}</option>'
+						<option value= {{l}} >{{l}}</option>
 					{% endfor %}
 
 				</select>
 			</div>
 
 			<div id="thrid_lang">
-				<label class="f_label"> </label>
-				<select class="f_100 f_select" name="lang2">
+				<label> </label>
+				<select name="lang2">
 					<option value="None">None</option>
 
 					{% for l in lang %}
-						<option value= {{l}} >{{l}}</option>'
+						<option value= {{l}} >{{l}}</option>
 					{% endfor %}
 
 				</select>
 			</div>
 
 			<div>
-				<label class="f_label"> </label>
-				<select class="f_100 f_select" name="lang3">
+				<label> </label>
+				<select name="lang3">
 					Language 3
 					<option value="None">None</option>
 
 					{% for l in lang %}
-						<option value= {{l}} >{{l}}</option>'
+						<option value= {{l}} >{{l}}</option>
 					{% endfor %}
 
 				</select>
@@ -76,28 +75,26 @@
 
 		  <div class="text_center margin_top_bot"><span class="colorful">Please Choose</span></div>
 
-			<div id="radio_inc" class="f_200 radio right margin_top_bot">
+			<div id="radio_inc" class="radio right margin_top_bot">
 				<input type="radio" name="status" value="i">
-				Incoming Student: I am an international student, who is coming to Magdeburg or just arrived in Magdeburg.
+				Incoming Buddy: I am an international student. I want to get a German buddy in Magdeburg.
 			</div>
-			<div id="radio_pre" class="f_200 radio left margin_top_bot" >
+			<div id="radio_pre" class="radio left margin_top_bot" >
 				<input type="radio" name="status" value="p">
-				Present Student: I am a German speaking student and I want to help people, who are coming from abroad to Magdeburg.
+				German Buddy: I am a German student and I want to assist international students.
 			</div>
 
 			<div id="train" class="right text_right margin_top_bot">
-				I know, that I have to visit the Training at 28.2.2014, to be part of the buddy programm.
+				I know, that I have to visit the training on 28.2.2014 to be part of the buddy program.
 				<input type="checkbox" name="training" value="yes" id="train_cb">
 			</div>
 
-
-			<div id="privacy" class="right text_right margin_top_bot">
+			<div id="privacy" class="clear right text_right margin_top_bot">
 				I accept the <a href="./privacy.html">privacy terms</a> .
 				<input type="checkbox" name="privacy" value="yes" id="privacy_cb">
 			</div>
-			<div style="width=800px" class="clear"></div>
 
-			<button class="right button_big" name="name" value="Signup" type="submit" id="register_button">Signup</button>
+			<button class="clear right button_big" name="name" value="Signup" type="submit" id="register_button">Signup</button>
 
 		</form>
 
