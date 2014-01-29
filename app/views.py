@@ -57,7 +57,7 @@ def register():
 
 		send_token(new_user.name, new_user.email, new_user.token)
 	except Exception, e:
-		message = Markup("Something went wrong. Please try again:" + str(e))
+		message = Markup("Something went wrong. It looks like the email adress is aleady in use.")
 		flash(message)
 		return redirect('/')
 
