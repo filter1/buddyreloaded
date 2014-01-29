@@ -50,16 +50,16 @@ def token(token_str):
 def register():
 	new_user = User(** (request.form.to_dict(flat=True))) # converting to normal dict
 
-	# trying
-	# try:
+
+	try:
 	db.session.add(new_user)
 	db.session.commit()
 
 	send_token(new_user.name, new_user.email, new_user.token)
-	# except Exception, e:
-	# 	message = Markup("Something went wrong. Please try again:" + str(e))
-	# 	flash(message)
-		# return redirect('/')
+	except Exception, e:
+		message = Markup("Something went wrong. Please try again:" + str(e))
+		flash(message)
+		return redirect('/')
 
 	message = Markup("You successfully registred. Now check your emails and activate the account!")
 	flash(message)
