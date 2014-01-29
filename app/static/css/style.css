@@ -1,5 +1,5 @@
 
-@media (min-width: 767px){
+@media (min-width:761){
 
 	body > div{
 		width: 760px;
@@ -24,10 +24,36 @@
 	}
 }
 
-@media (max-width: 766px){
+
+@media (min-width:481px) and (max-width: 760px){
 
 	body > div{
-		width: 480;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo {
+		height: 88px;
+	}
+	.banner{
+		margin-top: 4em;
+		width: 100%;
+	}
+
+	.info, .reg {
+	width: 49%;
+	}
+
+	.reg {
+		text-align: right;
+		float: right;
+	}
+}
+
+@media (max-width: 480px){
+
+	body > div{
+		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 	}
