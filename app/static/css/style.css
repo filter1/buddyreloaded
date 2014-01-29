@@ -67,7 +67,7 @@
 
 	}
 	.logo {
-		height: 10%;
+		width: 10%;
 	}
 	.banner{
 		display: none;
@@ -84,6 +84,11 @@
 
 	body {
 				font-size: 3em; 
+	}
+
+	input{
+		width: 100px;
+		height: 10px;
 	}
 }
 
