@@ -5,6 +5,7 @@
 		width: 760px;
 		margin-left: auto;
 		margin-right: auto;
+		font-size: 1em;
 	}
 	.logo {
 		height: 88px;
@@ -31,6 +32,7 @@
 		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
+		font-size: 1em; 
 	}
 	.logo {
 		height: 88px;
@@ -56,6 +58,7 @@
 		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
+		font-size: 5em: 
 	}
 	.logo {
 		height: 10%;
@@ -72,11 +75,6 @@
 	h1,h3, .info{
 		text-align: center;
 	}
-
-	body {
-		font-size: 200%
-	}
-
 }
 
 
@@ -84,7 +82,6 @@
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 200;
-	font-size: 100%;
 	text-align: center;
 }
 
