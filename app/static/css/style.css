@@ -1,8 +1,64 @@
+
+@media (min-width: 767px){
+
+	body > div{
+		width: 760px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo {
+		height: 88px;
+	}
+	.banner{
+		margin-top: 4em;
+		width: 760px;
+	}
+
+	.info, .reg {
+	width: 49%;
+	}
+
+	.reg {
+		text-align: right;
+		float: right;
+	}
+}
+
+@media (max-width: 766px){
+
+	body > div{
+		width: 480;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo {
+		height: 10%;
+	}
+	.banner{
+		display: none;
+	}
+
+	.reg {
+		text-align: right;
+		float: righ
+	}
+
+	h1,h3, .info{
+		text-align: center;
+	}
+
+}
+
+
+
+
+
+
+
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 200;
 	font-size: 100%;
-
 	text-align: center;
 }
 
@@ -17,41 +73,21 @@ h3 {
 	font-size: 3em;
 }
 
-footer div + div{
-	width: 760px;
-	height: 5px;
-	background-color: #2b406d;
-	margin-bottom: 20px;
-}
-
-.logo {
-	height: 50px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
 footer div {
+	height: 0.5em;
+	background-color: #2b406d;
+	margin-bottom: 2em;
 	clear: both;
-	height: 20px;
 }
+
 
 header {
 	text-align: right;
-	width: 760px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.header_min{
-	min-height: 150px;
+	margin-top: 1em;
 }
 
 header form {
 	float: right;
-}
-
-header input {
-	width: 100px;
 }
 
 .left {
@@ -70,7 +106,6 @@ header input {
 	text-align: center;
 }
 
-
 .right {
 	float: right;
 }
@@ -81,15 +116,13 @@ header input {
 
 .button_small{
 	font-size: 1em;
-	padding: 2px;
+	padding: 0.1em;
 	background-color: white;
 	color: #2b406d;
 	border: none;
 }
 
 .button_small:hover{
-
-	/*border-botom: 2px solid #2b406d;*/
 	text-decoration: underline;
 }
 
@@ -98,47 +131,45 @@ header input {
 	border: none;
 	background-color: #2b406d;
 	color: white;
-	box-shadow: 2px 2px 2px grey;
+	box-shadow: 0.2em 0.2em 0.2em grey;
 
-	margin-top: 5px;
-	margin-bottom: 5px;
-	padding: 5px;
-
+	margin-top: 0.4em;
+	margin-bottom: 0.4em;
+	padding: 0.3em;
 }
 
 .button_big:hover {
-	box-shadow: 5px 5px 10px grey;
+	box-shadow: 0.4em 0.4em 0.5em grey;
 
 	-webkit-transition:3s linear;
 	transition:1s ease;
-
-/*	background-color: #2b406d;*/
-
 	-webkit-transform:rotate(3deg);
   transform:rotate(3deg);
-
 }
 
 a {
 	text-decoration: none;
 	color: #2b406d;
 	font-weight: 400;
-
 }
 
 a:hover {
 	text-decoration: underline;
-/*	background-color: black;*/
-	/*color: grey;*/
 }
 
-.info, .reg {
-	width: 370px;
+
+
+.reg input, .reg select{
+	margin-bottom: 0.3em;
+	width: 10em;
 }
 
-.reg {
-	text-align: right;
-	float: right;
+input {
+	width: 10em;
+}
+
+input[type=radio], input[type=checkbox] {
+	width: 2em;
 }
 
 .info {
@@ -146,15 +177,9 @@ a:hover {
 	float: left;
 }
 
-.content {
-	width: 760px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .colorful {
 	color: white;
-	padding:2px 5px;
+	padding:0.2em 0.4em;
 	font-weight: 400;
 	font-size: 1.2em;
 	background-color: #2b406d;
@@ -167,38 +192,15 @@ a:hover {
 	margin: 1em 0;
 }
 
-/*
-	Formular
-*/
-.f_select {
-	margin-right: 5px;
-	margin-left: 5px;
-}
-
-.f_100 {
-	width: 100px;
-}
-
-.f_200 {
-	width: 170px;
-}
-
-.radio{
-	margin: 10px 0;
+.radio {
+	width: 47.5%;
 }
 
 .f_textarea {
 	resize:none;
-	margin-top: 5px;
-	width: 350px;
+	margin-top: 1em;
+	width: 100%;
 }
-
-.f_label {
-	font-weight: 200;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
 
 .error {
 	color: red;
@@ -207,7 +209,5 @@ a:hover {
 .flashes{
 	height: 20px;
 	padding-top: 5px;
-/*	font-size: 2em;*/
 	font-weight: 400;
-
 }

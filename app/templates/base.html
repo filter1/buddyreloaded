@@ -3,23 +3,19 @@
 <html>
   <head>
     <meta charset="utf8">
-    <title>Buddy Programm</title>
+    <title>Buddy Program</title>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet' type='text/css'>
     <link href='static/css/style.css' rel='stylesheet' type='text/css'>
-    <link href='static/css/simplegrid.css' rel='stylesheet' type='text/css'>
+
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="static/js/script.js"></script>
   </head>
   <body>
+    <div>
     <header>
-      <div class="header_min">
-        <!--    <div>
-          <a href="">German</a>
-          |
-          <a href="">English</a>
-        </div> -->
-        <img class="left" height="88px" src="./static/img/logo.jpg">
+      <div>
+        <img class="left logo" src="./static/img/logo.jpg">
 
       {% if user is defined %}
 <!--         <div>Hello, {{user.name}}! <a href="./logout">Logout</a> </div> -->
@@ -46,7 +42,7 @@
       
         <div class="clear"></div>
       </div>
-      <img src="/static/img/buddy_header.png">
+      <img class="banner" src="/static/img/buddy_header.png">
     </header>
 
 
@@ -65,21 +61,14 @@
 
     <footer>
       <div></div>
-    
-      <div></div>
+
       <a href="contact.html">Contact</a> |
       <a href="impress.html">Impress</a> |
       <a href="privacy.html">Privacy</a>
-      <br>
 
       <small>Created by <a href="https://twitter.com/rosario_raulin">Rosario Raulin</a> and <a href="https://twitter.com/fil_ter">Johannes Filter</a>.</small>
-      <div style="height: 50px;"></div>
 
-<!--       <div class="logo">
-        <a href="http://www.ria.stura-md.de"><img class="left" src="static/img/ria.png"></a>
-        <a href="http://www.stura-md.de"><img class="right" src="static/img/stura.png"></a>
-      </div> -->
-
-    </footer> 
+    </footer>
+    </div>
   </body>
 </html>
