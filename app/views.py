@@ -52,10 +52,10 @@ def register():
 
 
 	try:
-	db.session.add(new_user)
-	db.session.commit()
+		db.session.add(new_user)
+		db.session.commit()
 
-	send_token(new_user.name, new_user.email, new_user.token)
+		send_token(new_user.name, new_user.email, new_user.token)
 	except Exception, e:
 		message = Markup("Something went wrong. Please try again:" + str(e))
 		flash(message)
