@@ -1,5 +1,5 @@
 
-@media (min-width:761){
+@media (min-device-width:761){
 
 	body > div{
 		width: 760px;
@@ -25,7 +25,7 @@
 }
 
 
-@media (min-width:481px) and (max-width: 760px){
+@media (min-device-width:481px) and (max-device-width: 760px){
 
 	body > div{
 		width: 100%;
@@ -50,7 +50,7 @@
 	}
 }
 
-@media (max-width: 480px){
+@media (max-device-width: 480px){
 
 	body > div{
 		width: 100%;
