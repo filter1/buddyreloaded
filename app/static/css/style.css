@@ -161,7 +161,8 @@ input[type=radio], input[type=checkbox] {
 }
 
 
-/*@media (min-width:761){*/
+
+
 	body > div{
 		width: 760px;
 		margin-left: auto;
@@ -188,7 +189,37 @@ input[type=radio], input[type=checkbox] {
 	body {
 				font-size: 1em: 
 	}
-/*}
+
+
+
+@media (min-width:761){
+	body > div{
+		width: 760px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.logo {
+		height: 88px;
+	}
+	.banner{
+		margin-top: 4em;
+		width: 760px;
+	}
+
+	.info, .reg {
+	width: 49%;
+	}
+
+	.reg {
+		text-align: right;
+		float: right;
+	}
+
+	body {
+				font-size: 1em: 
+	}
+}
 
 
 @media (min-width:481px) and (max-width: 760px){
@@ -255,4 +286,3 @@ input[type=radio], input[type=checkbox] {
 		width: 100%;
 		height: 5em;
 	}
-}*/
