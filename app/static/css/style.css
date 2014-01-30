@@ -234,7 +234,8 @@ input[type=radio], input[type=checkbox] {
 	}
 
 	.reg {
-		text-align: center;
+		text-align: right;
+		float: right;
 	}
 
 	h1,h3, .info{
