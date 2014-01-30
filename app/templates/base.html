@@ -1,4 +1,4 @@
-<!doctype html>
+
 
 <html>
   <head>
@@ -12,69 +12,72 @@
     <script src="static/js/script.js"></script>
   </head>
   <body>
-    <div>
-    <header>
-      <div>
-        <a href="http://www.ria.stura-md.de">
-          <img alt="RIA-Logo" class="left logo" src="./static/img/logo.jpg">
+    <div style="width: 760px; margin-left: auto;
+    margin-right: auto;">
+      <header>
+        <div>
+          <a href="http://www.ria.stura-md.de">
+            <img alt="RIA-Logo" class="left logo" src="./static/img/logo.jpg">
+          </a>
+        {% if user is defined %}
+  <!--         <div>Hello, {{user.name}}! <a href="./logout">Logout</a> </div> -->
+          <form method="post" action="./logout">
+            Hello, {{user.name}}!
+            <button type="submit" class="button_small">Logout</button>
+          </form>
+          <!-- REALLY SUCKS -->
+
+
+        {% else %}
+          <form action="login" method="post">
+            <div>
+              Email <input type="email" name="email">
+            </div>
+            <div>
+              Password <input type="password" name="password">
+            </div>
+            <button class="button_big" name="name" value="value" type="submit">Login</button>
+          </form>
+        {% endif %}
+
+
+        
+          <div class="clear"></div>
+        </div>
+
+        <a href="./">
+          <img alt="Banner with People" class="banner" src="/static/img/buddy_header.png">
         </a>
-      {% if user is defined %}
-<!--         <div>Hello, {{user.name}}! <a href="./logout">Logout</a> </div> -->
-        <form method="post" action="./logout">
-          Hello, {{user.name}}!
-          <button type="submit" class="button_small">Logout</button>
-        </form>
-        <!-- REALLY SUCKS -->
 
+      </header>
 
-      {% else %}
-        <form action="login" method="post">
-          <div>
-            Email <input type="email" name="email">
-          </div>
-          <div>
-            Password <input type="password" name="password">
-          </div>
-          <button class="button_big" name="name" value="value" type="submit">Login</button>
-        </form>
-      {% endif %}
+      <div class="flashes">
+        {% for message in get_flashed_messages() %}
 
+          <span>
+            {{ message }}
+          </span>  
 
-      
-        <div class="clear"></div>
+          {% endfor %}
       </div>
 
-      <a href="./">
-        <img alt="Banner with People" class="banner" src="/static/img/buddy_header.png">
-      </a>
+      {% block content %}{% endblock %}
 
-    </header>
+      <footer>
+        <div id="footer_bugged"></div>
+        <div id="footer_line"></div>
 
-    <div class="flashes">
-      {% for message in get_flashed_messages() %}
+        <div>
+        <a href="contact.html">Contact</a> |
+        <a href="impress.html">Impress</a> |
+        <a href="privacy.html">Privacy</a>
+        </div>
 
-        <span>
-          {{ message }}
-        </span>  
+        <small>Created by <a href="https://twitter.com/rosario_raulin">Rosario Raulin</a> and <a href="https://twitter.com/fil_ter">Johannes Filter</a>.</small>
 
-        {% endfor %}
-    </div>
 
-    {% block content %}{% endblock %}
 
-    <footer>
-      <div id="footer_bugged"></div>
-      <div id="footer_line"></div>
-
-      <div>
-      <a href="contact.html">Contact</a> |
-      <a href="impress.html">Impress</a> |
-      <a href="privacy.html">Privacy</a>
-      </div>
-
-      <small>Created by <a href="https://twitter.com/rosario_raulin">Rosario Raulin</a> and <a href="https://twitter.com/fil_ter">Johannes Filter</a>.</small>
-
-    </footer>
+      </footer>
     </div>
   </body>
 </html>

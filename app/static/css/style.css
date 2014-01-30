@@ -219,7 +219,7 @@ input[type=radio], input[type=checkbox] {
 	}
 
 	body {
-				font-size: 1em: 
+				font-size: 1em;
 	}
 }
 
@@ -247,7 +247,7 @@ input[type=radio], input[type=checkbox] {
 	}
 
 	body {
-				font-size: 3em; 
+		font-size: 3em; 
 	}
 
 	.reg input, .reg select{
