@@ -161,38 +161,7 @@ input[type=radio], input[type=checkbox] {
 }
 
 
-
-
-	body > div{
-		width: 760px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.logo {
-		height: 88px;
-	}
-	.banner{
-		margin-top: 4em;
-		width: 760px;
-	}
-
-	.info, .reg {
-	width: 49%;
-	}
-
-	.reg {
-		text-align: right;
-		float: right;
-	}
-
-	body {
-				font-size: 1em: 
-	}
-
-
-
-@media (min-device-width:761){
+@media (min-width:761px){
 	body > div{
 		width: 760px;
 		margin-left: auto;
@@ -222,7 +191,7 @@ input[type=radio], input[type=checkbox] {
 }
 
 
-@media (min-device-width:481px) and (max-device-width: 760px){
+@media (min-width:481px) and (max-width: 760px){
 	body > div{
 		width: 100%;
 		margin-left: auto;
@@ -250,7 +219,7 @@ input[type=radio], input[type=checkbox] {
 	}
 }
 
-@media (max-device-width: 480px){
+@media (max-width: 480px){
 	body > div{
 		width: 100%;
 		margin-left: auto;
