@@ -234,8 +234,7 @@ input[type=radio], input[type=checkbox] {
 	}
 
 	.reg {
-		text-align: right;
-		float: right;
+		text-align: center;
 	}
 
 	h1,h3, .info{
@@ -246,13 +245,13 @@ input[type=radio], input[type=checkbox] {
 		font-size: 1em; 
 	}
 
-/*	.reg input, .reg select{
-		margin-bottom: 0.3em;
+	.reg input, .reg select{
+
 		width: 100%;
 		height: 5em;
 	}
 
 	input {
 		width: 100%;
-		height: 5em;*/
 	}
+}
