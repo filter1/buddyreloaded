@@ -244,14 +244,4 @@ input[type=radio], input[type=checkbox] {
 	body {
 		font-size: 1em; 
 	}
-
-	.reg input, .reg select{
-
-		width: 100%;
-		height: 5em;
-	}
-
-	input {
-		width: 100%;
-	}
 }
