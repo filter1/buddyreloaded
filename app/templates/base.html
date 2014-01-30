@@ -15,8 +15,9 @@
     <div>
     <header>
       <div>
-        <img class="left logo" src="./static/img/logo.jpg">
-
+        <a href="http://www.ria.stura-md.de">
+          <img class="left logo" src="./static/img/logo.jpg">
+        </a>
       {% if user is defined %}
 <!--         <div>Hello, {{user.name}}! <a href="./logout">Logout</a> </div> -->
         <form method="post" action="./logout">
@@ -42,10 +43,12 @@
       
         <div class="clear"></div>
       </div>
-      <img class="banner" src="/static/img/buddy_header.png">
+
+      <a href="./">
+        <img class="banner" src="/static/img/buddy_header.png">
+      </a>
+
     </header>
-
-
 
     <div class="flashes">
       {% for message in get_flashed_messages() %}
