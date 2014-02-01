@@ -1,7 +1,7 @@
 from flask import render_template, request, flash, redirect, Markup, session
 from app import app
 from models import db, User
-from mails import send_token
+from mails import send_token, send_notification
 from lang import lang_array
 
 @app.route('/')
@@ -49,34 +49,24 @@ def token(token_str):
 @app.route('/register', methods = ['POST'])
 def register():
 	new_user = User(** (request.form.to_dict(flat=True))) # converting to normal dict
-
-
 	try:
 		db.session.add(new_user)
 		db.session.commit()
 
 		send_token(new_user.name, new_user.email, new_user.token)
 	except Exception, e:
-		message = Markup("Something went wrong. It looks like the email adress is aleady in use.")
+		message = Markup("Something went wrong. It looks like the email adress is aleady in use.") #+ str(e)
 		flash(message)
 		return redirect('/')
-
+	send_notification(new_user.email) # sending Email to contact@buddy-md.de
 	message = Markup("You successfully registred. Now check your emails and activate the account!")
 	flash(message)
 	return redirect('/')
-
-@app.route('/testdb')
-def testdb():
-  if db.session.query("1").from_statement("SELECT 1").all():
-    return 'It works.'
-  else:
-    return 'Something is broken.'
 
 @app.route('/login', methods = ['POST'])
 def login():
 	try:
 		user = User.query.filter_by(email = request.form['email']).first()
-
 		if user != None:
 			if user.check_password(request.form['password']):
 				if user.token == None: # check if activated

@@ -16,3 +16,11 @@ def send_token(name, email, token):
             name = name, token = token, url = 'http://buddy-md.de/token/' + str(token)),
         render_template("email_token.html", 
             name = name, token = token, url = 'http://buddy-md.de/token/' + str(token)))
+
+def send_notification(email):
+    send_email("[INFO] Registration: %s" % email,
+            "noreply@buddy-md.de",
+            ["contact@buddy-md.de"],
+            "New Registration: %s " % email,
+            "New Registration: %s " % email
+        )
