@@ -1,6 +1,7 @@
 from flask import render_template, request, flash, redirect, Markup, session
 
 from users.lang import lang_array
+from users.models import User
 from app import app
 
 
