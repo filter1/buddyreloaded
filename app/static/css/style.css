@@ -78,24 +78,21 @@ header form {
 }
 
 .button_big {
-	font-size: 1.2em;
-	border: none;
-	background-color: #2b406d;
-	color: white;
-	box-shadow: 0.2em 0.2em 0.2em grey;
+	font-size: 1.5em;
+	border: 0.2em solid #2b406d;
+	background-color: white;
+	color: #2b406d;
 
 	margin-top: 0.4em;
 	margin-bottom: 0.4em;
-	padding: 0.3em;
+/*	padding: 0.3em;*/
 }
 
 .button_big:hover {
-	box-shadow: 0.4em 0.4em 0.5em grey;
-
-	-webkit-transition:3s linear;
-	transition:1s ease;
-	-webkit-transform:rotate(3deg);
-  transform:rotate(3deg);
+	background-color: #2b406d;
+	color: white;
+	-webkit-transition:0.5s ease;
+	transition:0.5s ease;
 }
 
 a {
