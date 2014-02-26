@@ -1,7 +1,0 @@
-Modules used:
-
-Flask-Mail
-Flask-SQLAlchemy
-
-
-http://stackoverflow.com/questions/6383310/python-mysqldb-library-not-loaded-libmysqlclient-18-dylib
