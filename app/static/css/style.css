@@ -244,4 +244,13 @@ input[type=radio], input[type=checkbox] {
 	body {
 		font-size: 1em; 
 	}
+
+	label {
+		display: block;
+	}
+
+	.reg input, .reg select{
+		margin-bottom: 0.3em;
+		width: 100%;
+	}
 }
