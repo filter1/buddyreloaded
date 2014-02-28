@@ -1,0 +1,8 @@
+Hallo {{iis.name}},
+
+your Buddy is: {{ps.name}} {{ps.surname}}.
+
+You can write him an email: {{ps.email}}
+
+Greetings
+Buddy Program Team

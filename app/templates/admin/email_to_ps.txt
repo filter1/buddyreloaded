@@ -1,0 +1,8 @@
+Hallo {{ps.name}},
+
+dein Buddy ist: {{iis.name}} {{iis.surname}}.
+
+Schreib ihm eine Email und klärt zukünftige Schritt: {{iis.email}}
+
+freundliche Grüße
+Buddy-Program-Team
