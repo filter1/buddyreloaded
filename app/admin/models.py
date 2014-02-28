@@ -16,5 +16,9 @@ class Matching(db.Model):
   ps = db.relationship('User', foreign_keys='Matching.ps_id')
   iis = db.relationship('User', foreign_keys='Matching.iis_id')
 
+  def __init__(self, ps_id, iis_id):
+    self.ps_id = ps_id
+    self.iis_id = iis_id
+
   def __repr__(self):
     return '<Matching %r,%r,%r>' % self.id, self.ps_id, self.iis_id
