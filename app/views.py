@@ -14,10 +14,15 @@ def index():
 
 	uid = session['uid']
 	user = User.query.get(uid)
+	buddy = None
 
-	buddy = Matching.query.filter(Matching.ps_id == user.id).one().iis
-	if not buddy:
-		buddy = Matching.query.filter(Matching.iis_id == user.id).one().ps
+	q = Matching.query.filter(Matching.ps_id == user.id).first()
+	if q:
+		buddy = q.iis
+	else:
+		q = Matching.query.filter(Matching.iis_id == user.id).first()
+		if q:
+			buddy = q.ps
 
 	return render_template('index_intern.html', user=user, buddy=buddy)
 
