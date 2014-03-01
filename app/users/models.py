@@ -58,3 +58,6 @@ class User(db.Model):
       <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>
       """ % (self.id, self.name, self.surname, self.email, self.dob, self.gender, self.faculty, self.lang1, self.lang2, self.lang3, self.remarks, self.status)
     return res
+
+  def is_admin(self):
+    return self.rank == RANK_ADMIN

@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, render_template, request, session
 import time
 
-from app.users.models import User, RANK_ADMIN
+from app.users.models import User
 from models import Matching
 from helper import send_matching_email, calculate_score
 from app.data import db
@@ -15,7 +15,7 @@ def restrict_to_admins():
 	id = session['uid']
 	user = User.query.get(id)
 
-	if not user.rank == RANK_ADMIN:
+	if not user.is_admin():
 		return redirect('/')
 
 @admin.route('/admin/', methods=('GET', 'POST'))

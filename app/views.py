@@ -2,6 +2,7 @@ from flask import render_template, request, flash, redirect, Markup, session
 
 from users.lang import lang_array
 from users.models import User
+from admin.models import Matching
 from app import app
 
 
@@ -13,7 +14,12 @@ def index():
 
 	uid = session['uid']
 	user = User.query.get(uid)
-	return render_template('index_intern.html', user=user)
+
+	buddy = Matching.query.filter(Matching.ps_id == user.id).one().iis
+	if not buddy:
+		buddy = Matching.query.filter(Matching.iis_id == user.id).one().ps
+
+	return render_template('index_intern.html', user=user, buddy=buddy)
 
 @app.route('/impress')
 def impress():

@@ -45,7 +45,12 @@
 
 	<div>
 		<div class="margin_top_bot"><span class='colorful'>Your Buddy</span></div>
-		You do not have a buddy yet.
+		{% if buddy %}
+			<div>{{buddy.name}} {{buddy.surname}}</div>
+			<div>{{buddy.email}}</div>
+		{% else %}
+			You do not have a buddy yet.
+		{% endif %}
 	</div>
 	<div class="clear"></div>
 

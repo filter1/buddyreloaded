@@ -3,7 +3,6 @@ from flask import render_template, request, flash, redirect, Markup, session, Bl
 from app.mails import send_token, send_notification
 from lang import lang_array
 
-# from app import app
 from app.users.models import User
 from app.data import db
 
@@ -25,6 +24,7 @@ def token(token_str):
 	flash(message)
 	return redirect('/')
 
+
 @users.route('/register', methods = ['POST'])
 def register():
 	new_user = User(** (request.form.to_dict(flat=True))) # converting to normal dict
@@ -41,6 +41,7 @@ def register():
 	message = Markup("You successfully registred. Now check your emails and activate the account!")
 	flash(message)
 	return redirect('/')
+
 
 @users.route('/login', methods = ['POST'])
 def login():
@@ -62,10 +63,12 @@ def login():
 	flash(message)
 	return redirect('/')
 
+
 @users.route('/logout', methods = ['GET', 'POST'])
 def logout():
 	session.pop('uid', None)
 	return redirect('/')
+
 
 @users.route('/change_matchable', methods = ['POST'])
 def change_matchable():
