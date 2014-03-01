@@ -1,0 +1,10 @@
+Hallo {{ps.name}},
+
+dein Buddy ist: {{iis.name}} {{iis.surname}}.
+
+Schreibe ihm doch möglichst bald eine Email, damit ihr euch austauschen könnt: {{iis.email}}
+
+Bei Rückfragen kannst Du dich euch gern an buddy@stura-md.de wenden.
+
+freundliche Grüße
+Buddy-Program-Team

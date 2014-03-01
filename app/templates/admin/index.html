@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1>Matching Control</h1>
+
+<form action="{{url_for('admin.admin_match_all')}}" method="POST">
+	<button class="btn" type="submit">Match all</button>
+</form>
+
+<form action="{{url_for('admin.admin_match_two')}}" method="POST">
+	<label>Present Student</label>
+	<input type="number" name="ps">
+	<label>Incoming International Student</label>
+	<input type="number" name="iis">
+	<button class="btn" type="submit">Pair</button>
+</form>
+
+
+<form action="{{url_for('admin.admin_match_send')}}" method="POST">
+	<button class="btn" type="submit">Send Email</button>
+</form>
+
+
+{% endblock %}

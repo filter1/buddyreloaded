@@ -1,28 +1,35 @@
 from flask import render_template, request, flash, redirect, Markup, session
+
+from users.lang import lang_array
+from users.models import User
+from admin.models import Matching
 from app import app
-from models import db, User
-from mails import send_token, send_notification
-from lang import lang_array
+
 
 @app.route('/')
-@app.route('/index.html')
+@app.route('/index')
 def index():
 	if 'uid' not in session:
 		return render_template('index_reg.html', lang=lang_array)
 
 	uid = session['uid']
 	user = User.query.get(uid)
-	return render_template('index_intern.html', user=user)
 
-@app.route('/impress.html')
+	buddy = Matching.query.filter(Matching.ps_id == user.id).one().iis
+	if not buddy:
+		buddy = Matching.query.filter(Matching.iis_id == user.id).one().ps
+
+	return render_template('index_intern.html', user=user, buddy=buddy)
+
+@app.route('/impress')
 def impress():
 	return render_template('impress.html')
 
-@app.route('/privacy.html')
+@app.route('/privacy')
 def about_us():
 	return render_template('privacy.html')
 
-@app.route('/contact.html')
+@app.route('/contact')
 def contac():
 	return render_template('contact.html')
 
@@ -30,71 +37,3 @@ def contac():
 def admin():
 	return 'Admin'
 
-@app.route('/token/<token_str>')
-def token(token_str):
-	user = User.query.filter_by(token = token_str).first()
-
-	if user == None:
-		message = Markup('Something with the token went wrong.')
-		return redirect('/')
-	else:
-		user.token = None
-		db.session.commit()
-		session['uid'] = user.uid #login
-		message = Markup('Successfully activated the account.')
-
-	flash(message)
-	return redirect('/')
-
-@app.route('/register', methods = ['POST'])
-def register():
-	new_user = User(** (request.form.to_dict(flat=True))) # converting to normal dict
-	try:
-		db.session.add(new_user)
-		db.session.commit()
-
-		send_token(new_user.name, new_user.email, new_user.token)
-	except Exception, e:
-		message = Markup("Something went wrong. It looks like the email adress is aleady in use.") #+ str(e)
-		flash(message)
-		return redirect('/')
-	send_notification(new_user.email) # sending Email to contact@buddy-md.de
-	message = Markup("You successfully registred. Now check your emails and activate the account!")
-	flash(message)
-	return redirect('/')
-
-@app.route('/login', methods = ['POST'])
-def login():
-	try:
-		user = User.query.filter_by(email = request.form['email']).first()
-		if user != None:
-			if user.check_password(request.form['password']):
-				if user.token == None: # check if activated
-					session['uid'] = user.uid
-					message = Markup('You successfully logged in.')
-				else:
-					message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.')
-			else:
-				message = Markup('Your password is incorrect.')
-		else:
-			message = Markup('We did not find your email adress.')
-	except Exception, e:
-		message = str(e)
-	flash(message)
-	return redirect('/')
-
-@app.route('/logout', methods = ['GET', 'POST'])
-def logout():
-	session.pop('uid', None)
-	return redirect('/')
-
-@app.route('/change_matchable', methods = ['POST'])
-def change_matchable():
-	if 'uid' not in session:
-		return redirect('/')
-
-	uid = session['uid']
-	user = User.query.get(uid)
-	user.matchable = not user.matchable
-	db.session.commit()
-	return redirect('/')

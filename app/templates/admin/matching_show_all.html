@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+{% block content %}
+
+
+<table class="table table-hover">
+	<tr>
+		<th>ID</th>
+		<th>Matched On</th>
+		<th>Email send</th>
+		<th>ID - Buddy</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>DOB</th>
+		<th>Gender</th>
+		<th>Faculty</th>
+		<th>Language</th>
+		<th>Language</th>
+		<th>Language</th>
+		<th>Remarks</th>
+		<th>Status</th>
+		<th>ID - Buddy</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>DOB</th>
+		<th>Gender</th>
+		<th>Faculty</th>
+		<th>Language</th>
+		<th>Language</th>
+		<th>Language</th>
+		<th>Remarks</th>
+		<th>Status</th>
+	</tr>
+	{% for m in matchings %}
+			{{ m.to_table()|safe }}
+	{% endfor %}
+</table>
+
+{% endblock %}
