@@ -19,7 +19,7 @@ def token(token_str):
 	else:
 		user.token = None
 		db.session.commit()
-		session['uid'] = user.uid #login
+		session['uid'] = user.id #login
 		message = Markup('Successfully activated the account.')
 
 	flash(message)
@@ -49,7 +49,7 @@ def login():
 		if user != None:
 			if user.check_password(request.form['password']):
 				if user.token == None: # check if activated
-					session['uid'] = user.uid
+					session['uid'] = user.id
 					message = Markup('You successfully logged in.')
 				else:
 					message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.')
@@ -72,8 +72,8 @@ def change_matchable():
 	if 'uid' not in session:
 		return redirect('/')
 
-	uid = session['uid']
-	user = User.query.get(uid)
+	id = session['uid']
+	user = User.query.get(id)
 	user.matchable = not user.matchable
 	db.session.commit()
 	return redirect('/')

@@ -49,12 +49,13 @@ $(document).ready(function() {
       	  $("#privacy_cb").after('<div class="error">Please check privacy.</div>');
           hasError = true;
       } else if (choiceVal == null) {
-      	  $('input[name="status"]').after('<div class="error">Please pick on.</div>');
-          hasError = true;
-      } else if (choiceVal == 'p' && train == false) {
-      	  $("#train_cb").after('<div class="error">Please check the box.</div>');
+      	  $('input[name="status"]').after('<div class="error">Please pick one.</div>');
           hasError = true;
       }
+      // else if (choiceVal == 'p' && train == false) {
+      // 	  $("#train_cb").after('<div class="error">Please check the box.</div>');
+      //     hasError = true;
+      // }
       if(hasError == true) {return false;}
 		});
 

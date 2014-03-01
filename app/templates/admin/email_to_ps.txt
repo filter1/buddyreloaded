@@ -2,7 +2,9 @@ Hallo {{ps.name}},
 
 dein Buddy ist: {{iis.name}} {{iis.surname}}.
 
-Schreib ihm eine Email und klärt zukünftige Schritt: {{iis.email}}
+Schreibe ihm doch möglichst bald eine Email, damit ihr euch austauschen könnt: {{iis.email}}
+
+Bei Rückfragen kannst Du dich euch gern an buddy@stura-md.de wenden.
 
 freundliche Grüße
 Buddy-Program-Team

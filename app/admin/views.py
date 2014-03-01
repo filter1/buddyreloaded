@@ -1,11 +1,22 @@
-from flask import Blueprint, redirect, render_template, request
+from flask import Blueprint, redirect, render_template, request, session
+import time
 
-from app.users.models import User
+from app.users.models import User, RANK_ADMIN
 from models import Matching
 from helper import send_matching_email, calculate_score
 from app.data import db
 
 admin = Blueprint('admin', __name__)
+
+@admin.before_request
+def restrict_to_admins():
+	if 'uid' not in session:
+		return redirect('/')
+	id = session['uid']
+	user = User.query.get(id)
+
+	if not user.rank == RANK_ADMIN:
+		return redirect('/')
 
 @admin.route('/admin/', methods=('GET', 'POST'))
 def admin_index():
@@ -53,13 +64,17 @@ def admin_match_two():
 
 @admin.route('/admin/matching_send_emails', methods=('GET','POST'))
 def admin_match_send():
-		matchings = Matching.query.filter(Matching.email_send == False).limit(5)
-		send_matching_email(matchings)
+		matchings = Matching.query.filter(Matching.email_send == False).limit(3)
+		for m in matchings:
+			send_matching_email(m)
+			time.sleep(3)
 		return "Success!"
 
 @admin.route('/admin/matching_show_all', methods=('GET','POST'))
 def admin_match_show_all():
-		matchings = Matching.query.join(User).all()
+		# matchings = Matching.query.join(User, Matching.ps_id==User.id).join(User, Matching.iis_id==User.id).all()
+		matchings = Matching.query.all()
+
 		return render_template('admin/matching_show_all.html', matchings=matchings)
 
 

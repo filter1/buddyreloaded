@@ -5,7 +5,10 @@ from app.data import db
 
 import uuid
 
- 
+RANK_USER = 0
+RANK_MOD = 1
+RANK_ADMIN = 2
+
 class User(db.Model):
   __tablename__ = 'users'
   id = db.Column(db.Integer, primary_key=True)
@@ -20,7 +23,7 @@ class User(db.Model):
   lang2 = db.Column(db.String(50))
   lang3 = db.Column(db.String(50))
   remarks = db.Column(db.Text)
-  rank = db.Column(db.Integer, default=0)
+  rank = db.Column(db.Integer, default=RANK_USER)
   status = db.Column(db.String(1), nullable=False)
   registration_date = db.Column(db.DateTime)
   last_login = db.Column(db.DateTime)
@@ -49,3 +52,9 @@ class User(db.Model):
    
   def check_password(self, password):
     return check_password_hash(self.password_hash, password)
+
+  def to_table(self):
+    res ="""<td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>
+      <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>
+      """ % (self.id, self.name, self.surname, self.email, self.dob, self.gender, self.faculty, self.lang1, self.lang2, self.lang3, self.remarks, self.status)
+    return res

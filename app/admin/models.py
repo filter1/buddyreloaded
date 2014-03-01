@@ -21,4 +21,8 @@ class Matching(db.Model):
     self.iis_id = iis_id
 
   def __repr__(self):
-    return '<Matching %r,%r,%r>' % self.id, self.ps_id, self.iis_id
+    return '<Matching %r>' % (self.id)
+
+  def to_table(self):
+    res = "<tr> <td>%s</td> <td>%s</td> <td>%s</td> %s %s </tr>" %(self.id, self.matched_on, self.email_send, self.ps.to_table(), self.iis.to_table())
+    return res
