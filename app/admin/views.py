@@ -18,9 +18,23 @@ def restrict_to_admins():
 	if not user.is_admin():
 		return redirect('/')
 
+
 @admin.route('/admin/', methods=('GET', 'POST'))
-def admin_index():
-	return render_template('admin/index.html')
+@admin.route('/admin/control', methods=('GET', 'POST'))
+def admin_control():
+	open_ps = User.query.filter(User.status == 'p', User.matchable == True).count()
+	num_ps = User.query.filter(User.status == 'p').count()
+	open_iis = User.query.filter(User.status == 'i', User.matchable == True).count()
+	num_iis = User.query.filter(User.status == 'i').count()
+	num_matchings = Matching.query.count()
+	open_mails = Matching.query.filter(Matching.email_send == False).count()
+
+	ps = User.query.filter(User.status == 'p', User.matchable == True).all()
+	iis = User.query.filter(User.status == 'i', User.matchable == True).all()
+
+	return render_template('admin/control.html', open_ps=open_ps, num_ps=num_ps,
+		open_iis=open_iis, num_iis=num_iis, num_matchings=num_matchings, open_mails=open_mails,
+		ps=ps, iis=iis)
 
 
 @admin.route('/admin/match_all', methods=('GET', 'POST'))
@@ -70,11 +84,26 @@ def admin_match_send():
 			time.sleep(3)
 		return "Success!"
 
-@admin.route('/admin/matching_show_all', methods=('GET','POST'))
+
+@admin.route('/admin/pairs_all', methods=('GET','POST'))
 def admin_match_show_all():
 		# matchings = Matching.query.join(User, Matching.ps_id==User.id).join(User, Matching.iis_id==User.id).all()
 		matchings = Matching.query.all()
 
 		return render_template('admin/matching_show_all.html', matchings=matchings)
+
+
+@admin.route('/admin/pairs', methods=('GET','POST'))
+def admin_matching_short():
+		matchings = Matching.query.all()
+
+		return render_template('admin/matching_short.html', matchings=matchings)
+
+
+@admin.route('/admin/registrations', methods=('GET','POST'))
+def admin_reg_all():
+		users = User.query.all()
+
+		return render_template('admin/registration_all.html', users=users)
 
 

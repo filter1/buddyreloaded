@@ -56,8 +56,21 @@ class User(db.Model):
   def to_table(self):
     res ="""<td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>
       <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>
-      """ % (self.id, self.name, self.surname, self.email, self.dob, self.gender, self.faculty, self.lang1, self.lang2, self.lang3, self.remarks, self.status)
+      """ % (self.id, self.name, self.surname, self.email, self.dob, self.gender, self.faculty,
+        self.lang1, self.lang2, self.lang3, self.remarks, self.status)
     return res
+
+  def to_user_table(self):
+    res ="""<td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td><td>%s</td> <td>%s</td> 
+      <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>
+      """ % (self.id, self.name, self.surname, self.email, self.dob, self.gender, self.faculty,
+        self.lang1, self.lang2, self.lang3, self.remarks, self.rank, self.status, self.registration_date,
+        self.matchable)
+    return res
+
+  def to_short_table(self):
+    res ="""<td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>""" % (self.id, self.name, self.surname, self.email)
+    return res 
 
   def is_admin(self):
     return self.rank == RANK_ADMIN
