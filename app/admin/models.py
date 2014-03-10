@@ -26,3 +26,7 @@ class Matching(db.Model):
   def to_table(self):
     res = "<tr> <td>%s</td> <td>%s</td> <td>%s</td> %s %s </tr>" %(self.id, self.matched_on, self.email_send, self.ps.to_table(), self.iis.to_table())
     return res
+
+  def to_matching_short_table(self):
+    res = "<tr> <td>%s</td> <td>%s</td> <td>%s</td> %s %s </tr>" %(self.id, self.matched_on, self.email_send, self.ps.to_short_table(), self.iis.to_short_table())
+    return res

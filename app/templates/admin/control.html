@@ -1,0 +1,74 @@
+{% extends "admin/base.html" %}
+{% block content %}
+	<h1 style="margin-bottom: 1em;" class="text-center">Matching Control</h1>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 well">
+				<h2 class="text-center">Present Student</h2>
+				<div class="row">
+					<div class="col-md-6 text-right">Registred: {{num_ps}}</div>
+					 <div class="col-md-6">Not matched: {{open_ps}}</div>
+				</div>
+
+				<h2 class="text-center">Incoming International Student</h2>
+				<div class="row">
+					<div class="col-md-6 text-right">Registred: {{num_iis}}</div>
+					 <div class="col-md-6">Not matched: {{open_iis}}</div>
+				</div>
+
+				<h2 class="text-center">Matchings</h2>
+				<div class="row">
+					<div class="col-md-6 text-right">Number of Mathchings: {{num_matchings}}</div>
+					 <div class="col-md-6">Email not send: {{open_mails}}</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div style="padding-bottom: 1em;" class="row">
+			<div class="col-md-3 col-md-offset-3">Match Present Students and Incoming International Students, who are matchable.</div>
+			<div class="col-md-6">
+				<form action="{{url_for('admin.admin_match_all')}}" method="POST">
+				<button class="btn btn-primary" type="submit">Match all</button>
+				</form>
+			</div>
+		</div>
+
+		<div style="padding-bottom: 1em;" class="row">
+			<div class="col-md-3 col-md-offset-3">Pair one Present Student and one International Incoming Student. Please Enter the ID.</div>
+			<div class="col-md-6">
+				<form action="{{url_for('admin.admin_match_two')}}" method="POST">
+					PS
+					<select>
+						{% for p in ps %}
+							<option value="{{p.id}}">{{p.id}}</option>
+						{% endfor %}
+					</select>
+					IIS
+					<select>
+						{% for i in iis %}
+							<option value="{{i.id}}">{{i.id}}</option>
+						{% endfor %}
+					</select>
+					<button class="btn btn-primary" type="submit">Pair</button>
+				</form>
+			</div>
+		</div>
+
+		<div style="padding-bottom: 1em;" class="row">
+			<div class="col-md-3 col-md-offset-3">Send Emails to the pairs and inform them about each other.</div>
+			<div class="col-md-6">
+				<form action="{{url_for('admin.admin_match_send')}}" method="POST">
+					<button class="btn btn-primary" type="submit">Send Email</button>
+				</form>
+			</div>
+		</div>
+
+
+
+
+	
+
+
+
+
+{% endblock %}
