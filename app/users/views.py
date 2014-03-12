@@ -45,22 +45,21 @@ def register():
 
 @users.route('/login', methods = ['POST'])
 def login():
-	try:
-		user = User.query.filter_by(email = request.form['email']).first()
-		if user != None:
-			if user.check_password(request.form['password']):
-				if user.token == None: # check if activated
-					session['uid'] = user.id
-					message = Markup('You successfully logged in.')
-				else:
-					message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.')
+	user = User.query.filter_by(email = request.form['email']).first()
+	if user != None:
+		if user.check_password(request.form['password']):
+			if user.token == None: # check if activated
+				session['uid'] = user.id
+				message = Markup('You successfully logged in.')
 			else:
-				message = Markup('Your password is incorrect.')
+				message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.')
 		else:
-			message = Markup('We did not find your email adress.')
-	except Exception, e:
-		message = str(e)
+			message = Markup('Your password is incorrect.')
+	else:
+		message = Markup('We did not find your email adress.')
 	flash(message)
+	if user.is_admin():
+		return redirect('/admin')
 	return redirect('/')
 
 
