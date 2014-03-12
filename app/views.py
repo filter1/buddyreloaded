@@ -32,6 +32,7 @@ def impress():
 
 @app.route('/privacy')
 def about_us():
+	raise ValueError("oh dear me")
 	return render_template('privacy.html')
 
 @app.route('/contact')
