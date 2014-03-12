@@ -11,6 +11,8 @@ MAIL_PASSWORD = 'Geyb-Dab-jUd-tAm-foo'
 
 
 #config
+
+
 SQLALCHEMY_DATABASE_URI = 'mysql://buddies:NabnuvwazsuorvAnErc2@localhost/buddies_buddy'
 #SQLALCHEMY_DATABASE_URI = 'mysql://root:lollol@localhost/development'
 
