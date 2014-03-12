@@ -20,11 +20,23 @@
 		<th>Created On</th>
 		<th>Matchable</th>
 	</tr>
+	{% set emails_str = 'ww' %}
 	{% for user in users %}
 		<tr>
 			{{ user.to_user_table()|safe }}
 		</tr>
 	{% endfor %}
 </table>
+
+
+
+<h2>Emails</h2>
+<div>
+{{emails}}
+</div>
+
+
+
+
 
 {% endblock %}
