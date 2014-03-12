@@ -87,7 +87,6 @@ def admin_match_send():
 
 @admin.route('/admin/pairs_all', methods=('GET','POST'))
 def admin_match_show_all():
-		# matchings = Matching.query.join(User, Matching.ps_id==User.id).join(User, Matching.iis_id==User.id).all()
 		matchings = Matching.query.all()
 
 		return render_template('admin/matching_show_all.html', matchings=matchings)
@@ -103,7 +102,28 @@ def admin_matching_short():
 @admin.route('/admin/registrations', methods=('GET','POST'))
 def admin_reg_all():
 		users = User.query.all()
+		emails = ''
+		for u in users:
+			emails += u.email + '; '
 
-		return render_template('admin/registration_all.html', users=users)
+		return render_template('admin/registrations.html', users=users, emails=emails)
 
 
+@admin.route('/admin/registrations_open_iis', methods=('GET','POST'))
+def admin_reg_open_iis():
+		users = User.query.filter(User.status == 'i', User.matchable == True).all()
+		emails = ''
+		for u in users:
+			emails += u.email + '; '
+
+		return render_template('admin/registrations.html', users=users, emails=emails)
+
+
+@admin.route('/admin/registrations_open_ps', methods=('GET','POST'))
+def admin_reg_open_ps():
+		users = User.query.filter(User.status == 'p', User.matchable == True).all()
+		emails = ''
+		for u in users:
+			emails += u.email + '; '
+			
+		return render_template('admin/registrations.html', users=users, emails=emails)
