@@ -38,13 +38,13 @@
 			<div class="col-md-6">
 				<form action="{{url_for('admin.admin_match_two')}}" method="POST">
 					PS
-					<select>
+					<select name="ps">
 						{% for p in ps %}
 							<option value="{{p.id}}">{{p.id}}</option>
 						{% endfor %}
 					</select>
 					IIS
-					<select>
+					<select name="iis">
 						{% for i in iis %}
 							<option value="{{i.id}}">{{i.id}}</option>
 						{% endfor %}
