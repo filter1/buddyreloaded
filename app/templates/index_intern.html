@@ -28,20 +28,7 @@
 			It is not possible to change your data here. Please write us an Email to <a href="mailto:contact@buddy-md.de">contact@buddy-md.de</a> and we will manually change it for you.
 		</div>
 
-		<div>
-			<div class="margin_top_bot"><span class='colorful'>Status</span></div>
-			{% if user.matchable == True %}
-				Active. Waiting to get matched.
-				<form action="change_matchable" method="post">
-					<button class="button_small" type="submit">Deactivate</button>
-				</form>
-			{% else %}
-				Not active. You cannot get matched.
-				<form action="change_matchable" method="post">
-					<button class="button_small" type="submit">Activate</button>
-				</form>
-			{% endif %}
-		</div>
+
 
 	<div>
 		<div class="margin_top_bot"><span class='colorful'>Your Buddy</span></div>

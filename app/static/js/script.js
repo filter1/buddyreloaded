@@ -43,7 +43,7 @@ $(document).ready(function() {
           $("#surname").after('<div class="error">Please enter a surname.</div>');
           hasError = true;
       } else if ( validateDate(dobVal)== false) {
-          $("#dob").after('<div class="error">Please enter a valid.</div>');
+          $("#dob").after('<div class="error">Please enter a valid date.</div>');
           hasError = true;
       } else if (privacy === false) {
       	  $("#privacy_cb").after('<div class="error">Please check privacy.</div>');
@@ -71,6 +71,7 @@ function validateEmail(email) {
 }
 
 function validateDate(date) { 
-    var re = /^(19|20)\d\d[.](0[1-9]|1[012])[.](0[1-9]|[12][0-9]|3[01])$/;   
+    // var re = /^(19|20)\d\d[.](0[1-9]|1[012])[.](0[1-9]|[12][0-9]|3[01])$/;  
+  var re = /^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)\d\d$/;   
     return re.test(date);
 }

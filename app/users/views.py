@@ -38,7 +38,7 @@ def register():
 		flash(message)
 		return redirect('/')
 	send_notification(new_user.email) # sending Email to contact@buddy-md.de
-	message = Markup("You successfully registred. Now check your emails and activate the account!")
+	message = Markup("Please activate your Email Adress.")
 	flash(message)
 	return redirect('/')
 
@@ -68,14 +68,3 @@ def logout():
 	session.pop('uid', None)
 	return redirect('/')
 
-
-@users.route('/change_matchable', methods = ['POST'])
-def change_matchable():
-	if 'uid' not in session:
-		return redirect('/')
-
-	id = session['uid']
-	user = User.query.get(id)
-	user.matchable = not user.matchable
-	db.session.commit()
-	return redirect('/')

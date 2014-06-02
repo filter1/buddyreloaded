@@ -1,5 +1,6 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
+from datetime import datetime
 
 from app.data import db
 
@@ -37,7 +38,8 @@ class User(db.Model):
     self.surname = dict['surname'].title()
     self.email = dict['email'].lower()
     self.set_password(dict['password'])
-    self.dob = dict['dob']
+    dob = datetime.strptime(dict['dob'], '%d.%M.%Y')
+    self.dob = dob
     self.gender = dict['gender']
     self.faculty = dict['faculty']
     self.lang1 = dict['lang1'] 
