@@ -26,10 +26,6 @@ def index():
 
 	return render_template('index_intern.html', user=user, buddy=buddy)
 
-@app.route('/impress')
-def impress():
-	return render_template('impress.html')
-
 @app.route('/privacy')
 def about_us():
 	return render_template('privacy.html')
