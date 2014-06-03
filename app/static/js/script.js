@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-    $('#train').hide();
+    $('#train, #max_buddies, .training').hide();
 
     $('#radio_pre input').click(function() {
-       $('#train').show();
+       $('#train, #max_buddies, .training').show();
     });
 
     $('#radio_inc input').click(function() {
-       $('#train').hide();
+       $('#train, #max_buddies, .training').hide();
     });
 
     // check input
@@ -22,7 +22,8 @@ $(document).ready(function() {
       var dobVal = $("#dob").val();
       var choiceVal = $('input[name="status"]:checked').val();  
       var privacy = $('#privacy_cb').is(":checked");
-      var train = $('#train_cb').is(":checked");
+      var choiceTraining = $('input[name="training"]:checked').val();  
+
 
       if (passwordVal == '' || passwordVal.length < 8) {
           $("#password").after('<div class="error">Please enter a password with at least 8 characters long.</div>');
@@ -51,7 +52,10 @@ $(document).ready(function() {
       } else if (choiceVal == null) {
       	  $('input[name="status"]').after('<div class="error">Please pick one.</div>');
           hasError = true;
-      }
+        } else if (choiceVal == 'p' && choiceTraining == null) {
+          $('input[name="training"]').after('<div class="error">Please pick one.</div>');
+          hasError = true;
+        }
       // else if (choiceVal == 'p' && train == false) {
       // 	  $("#train_cb").after('<div class="error">Please check the box.</div>');
       //     hasError = true;

@@ -34,7 +34,7 @@ def about_us():
 def contac():
 	return render_template('contact.html')
 
-@app.route('/admin')
-def admin():
-	return 'Admin'
+# @app.route('/admin')
+# def admin():
+# 	return 'Admin'
 
