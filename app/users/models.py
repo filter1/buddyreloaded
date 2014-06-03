@@ -1,5 +1,6 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
+from datetime import datetime
 
 from app.data import db
 
@@ -25,19 +26,22 @@ class User(db.Model):
   remarks = db.Column(db.Text)
   rank = db.Column(db.Integer, default=RANK_USER)
   status = db.Column(db.String(1), nullable=False)
-  registration_date = db.Column(db.DateTime)
+  registration_date = db.Column(db.DateTime, default=db.func.now())
   last_login = db.Column(db.DateTime)
   num_logins = db.Column(db.Integer, default=0)
   token = db.Column(db.String(100), unique=True)
   matchable = db.Column(db.Boolean, default=True)
-
+  max_buddies = db.Column(db.Integer)
+  training = db.Column(db.Integer)
+  term = db.Column(db.String(100))
 
   def __init__(self, **dict):
     self.name = dict['name'].title()
     self.surname = dict['surname'].title()
     self.email = dict['email'].lower()
     self.set_password(dict['password'])
-    self.dob = dict['dob']
+    dob = datetime.strptime(dict['dob'], '%d.%M.%Y')
+    self.dob = dob
     self.gender = dict['gender']
     self.faculty = dict['faculty']
     self.lang1 = dict['lang1'] 
@@ -46,6 +50,11 @@ class User(db.Model):
     self.remarks = dict['remarks']
     self.status = dict['status']
     self.token = str(uuid.uuid4())
+
+    if self.status == 'p':
+      self.max_buddies = dict['max_buddies']
+      self.training = dict['training']
+
  
   def set_password(self, password):
     self.password_hash = generate_password_hash(password)

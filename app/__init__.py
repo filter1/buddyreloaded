@@ -19,6 +19,7 @@ db = SQLAlchemy(app)
 from users.models import *
 from admin.models import *
 
+# db.drop_all(app=app)
 db.create_all(app=app)
 
 app.register_blueprint(users.views.users)

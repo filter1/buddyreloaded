@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1">
     <title>Buddy Program</title>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet' type='text/css'> -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link href='static/css/style.css' rel='stylesheet' type='text/css'>
 
-<!-- 
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-     -->
+    
     <script src="static/js/script.js"></script>
   </head>
   <body>
@@ -21,14 +21,10 @@
             <img alt="RIA-Logo" class="left logo" src="./static/img/logo.jpg">
           </a>
         {% if user is defined %}
-  <!--         <div>Hello, {{user.name}}! <a href="./logout">Logout</a> </div> -->
           <form method="post" action="./logout">
             Hello, {{user.name}}!
             <button type="submit" class="button_small">Logout</button>
           </form>
-          <!-- REALLY SUCKS -->
-
-
         {% else %}
           <form action="login" method="post">
             <div>
@@ -41,8 +37,6 @@
           </form>
         {% endif %}
 
-
-        
           <div class="clear"></div>
         </div>
 
@@ -59,7 +53,7 @@
             {{ message }}
           </span>  
 
-          {% endfor %}
+        {% endfor %}
       </div>
 
       {% block content %}{% endblock %}
@@ -70,13 +64,11 @@
 
         <div>
         <a href="/contact">Contact</a> |
-        <a href="/impress">Impress</a> |
+        <a href="http://www.stura-md.de/impressum/">Impress</a> |
         <a href="/privacy">Privacy</a>
         </div>
 
-        <small>Created by <a href="https://twitter.com/rosario_raulin">Rosario Raulin</a> and <a href="https://twitter.com/fil_ter">Johannes Filter</a>.</small>
-
-
+        <small>Created by <a href="https://twitter.com/fil_ter">@fil_ter</a>.</small>
 
       </footer>
     </div>

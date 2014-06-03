@@ -34,11 +34,11 @@ def register():
 
 		send_token(new_user.name, new_user.email, new_user.token)
 	except Exception, e:
-		message = Markup("Something went wrong. It looks like the email adress is aleady in use.") #+ str(e)
+		message = Markup("Something went wrong. It looks like the Email Address is aleady in use.") + str(e)
 		flash(message)
 		return redirect('/')
 	send_notification(new_user.email) # sending Email to contact@buddy-md.de
-	message = Markup("You successfully registred. Now check your emails and activate the account!")
+	message = Markup("Please activate your Email Address.")
 	flash(message)
 	return redirect('/')
 
@@ -52,7 +52,7 @@ def login():
 				session['uid'] = user.id
 				message = Markup('You successfully logged in.')
 			else:
-				message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.')
+				message = Markup('Please activate your account and vist the link which we send to your email. Also check your Junk Folder.' + user.token)
 		else:
 			message = Markup('Your password is incorrect.')
 	else:
@@ -68,14 +68,3 @@ def logout():
 	session.pop('uid', None)
 	return redirect('/')
 
-
-@users.route('/change_matchable', methods = ['POST'])
-def change_matchable():
-	if 'uid' not in session:
-		return redirect('/')
-
-	id = session['uid']
-	user = User.query.get(id)
-	user.matchable = not user.matchable
-	db.session.commit()
-	return redirect('/')

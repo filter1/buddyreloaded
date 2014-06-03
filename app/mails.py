@@ -13,13 +13,13 @@ def send_token(name, email, token):
 	send_email("[BUDDY-MD] Registration",
 		"noreply@buddy-md.de",
 		[email],
-		render_template("email_token.txt", 
+		render_template("email/email_token.txt", 
 			name = name, token = token, url = 'http://buddy-md.de/token/' + str(token)),
-		render_template("email_token.html", 
+		render_template("email/email_token.html", 
 			name = name, token = token, url = 'http://buddy-md.de/token/' + str(token)))
 
 def send_notification(email):
-	send_email("[INFO] Registration: %s" % email,
+	send_email("[INFO] Registration buddy-md.de: %s" % email,
 			"noreply@buddy-md.de",
 			["contact@buddy-md.de"],
 			"New Registration: %s " % email,
