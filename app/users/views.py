@@ -58,8 +58,10 @@ def login():
 	else:
 		message = Markup('We did not find your email adress.')
 	flash(message)
-	if user.is_admin():
+
+	if user != None and user.is_admin():
 		return redirect('/admin')
+
 	return redirect('/')
 
 
