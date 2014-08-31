@@ -40,7 +40,7 @@ class User(db.Model):
     self.surname = dict['surname'].title()
     self.email = dict['email'].lower()
     self.set_password(dict['password'])
-    dob = datetime.strptime(dict['dob'], '%d.%M.%Y')
+    dob = datetime.strptime(dict['dob'], '%d.%m.%Y')
     self.dob = dob
     self.gender = dict['gender']
     self.faculty = dict['faculty']
