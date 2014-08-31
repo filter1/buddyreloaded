@@ -127,3 +127,7 @@ def admin_reg_open_ps():
 			emails += u.email + '; '
 			
 		return render_template('admin/registrations.html', users=users, emails=emails)
+
+@admin.route('/admin/search', methods=('GET', 'POST'))
+def admin_search():
+	return render_template('admin/search.html')
