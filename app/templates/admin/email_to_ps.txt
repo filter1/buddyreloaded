@@ -2,9 +2,14 @@ Hallo {{ps.name}},
 
 dein Buddy ist: {{iis.name}} {{iis.surname}}.
 
-Schreibe ihm doch möglichst bald eine Email, damit ihr euch austauschen könnt: {{iis.email}}
+Schreibe ihr/ihm doch möglichst bald eine Email, damit ihr euch austauschen könnt: {{iis.email}} Dein Buddy freut sich bestimmt, wenn du als erstes den Kontakt aufnimmst und ihr/ihm etwas Unterstützung anbietest. 
 
-Bei Rückfragen kannst Du dich euch gern an buddy@stura-md.de wenden.
+Bitte melde dich, falls dir dein Buddy nicht antwortet. Wir versuchen dann, einen Ersatz zu organisieren.
+Ab Oktober kannst Du Tipps und Veranstaltungen zum Semesterbeginn auf unserer Facebook-Seite finden: facebook.com/RIAOvGU 
+Hier kannst Du unseren Buddy Guide mit allen wichtigen Informationen runterladen: Hier kannst Du unseren Buddy Guide mit allen wichtigen Informationen runterladen: Hier kannst Du unseren Buddy Guide mit allen wichtigen Informationen runterladen: ria.stura-md.de/wp-content/uploads/2014/06/Buddy-Guide-Deutsch-WS14-15.pdf
 
-freundliche Grüße
-Buddy-Program-Team
+Bei sonstigen Rückfragen kannst Du dich immer gern an buddy@stura-md.de wenden.
+
+Freundliche Grüße
+
+Buddy-Programm-Team

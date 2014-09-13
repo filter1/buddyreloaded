@@ -1,10 +1,10 @@
-Hallo {{iis.name}},
+Hello {{iis.name}},
 
 your Buddy is: {{ps.name}} {{ps.surname}}.
 
-You can write him an email: {{ps.email}}
+You can write him or her an email: {{ps.email}} 
 
-If you have any questions, feel free to contact us at buddy@stura-md.de .
+If you have any questions, or if your Buddy doesn't answer you, feel free to contact us at buddy@stura-md.de .
 
-Greetings
-Buddy Program Team
+Greetings,
+RIA Buddy Program Team
