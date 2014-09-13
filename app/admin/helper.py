@@ -14,8 +14,8 @@ def send_matching_email(pair):
 			subject = "[Buddy] You have a Buddy!"
 			msg = Message(
 				recipients=[pair.iis.email],
-				cc=["contact@buddy-md.de"],
-				sender="contact@buddy-md.de",
+				bcc=["contact@buddy-md.de"],
+				sender="buddy@stura-md.de",
 			  body=message,
 			  subject=subject)
 			conn.send(msg)
@@ -24,8 +24,8 @@ def send_matching_email(pair):
 			subject = "[Buddy] You have a Buddy!"
 			msg = Message(
 				recipients=[pair.ps.email],
-				cc=["contact@buddy-md.de"],
-				sender="contact@buddy-md.de",
+				bcc=["contact@buddy-md.de"],
+				sender="buddy@stura-md.de",
 			  body=message,
 			  subject=subject)
 			conn.send(msg)
