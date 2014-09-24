@@ -33,17 +33,17 @@ if not app.debug:
                                ['bugs@buddy-md.de'], 'YourApplication Failed')
     mail_handler.setLevel(logging.ERROR)
 
-    mail_handler.setFormatter(Formatter('''
-    Message type:       %(levelname)s
-    Location:           %(pathname)s:%(lineno)d
-    Module:             %(module)s
-    Function:           %(funcName)s
-    Time:               %(asctime)s
+    # mail_handler.setFormatter(Formatter('''
+    # Message type:       %(levelname)s
+    # Location:           %(pathname)s:%(lineno)d
+    # Module:             %(module)s
+    # Function:           %(funcName)s
+    # Time:               %(asctime)s
 
-    Message:
+    # Message:
     
-    %(message)s
-    '''))
+    # %(message)s
+    # '''))
 
     app.logger.addHandler(mail_handler)
 
