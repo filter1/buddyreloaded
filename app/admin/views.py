@@ -78,11 +78,20 @@ def admin_match_two():
 
 @admin.route('/admin/matching_send_emails', methods=('GET','POST'))
 def admin_match_send():
-		matchings = Matching.query.filter(Matching.email_send == False).limit(3)
-		for m in matchings:
-			send_matching_email(m)
-			time.sleep(3)
-		return "Success!"
+	matchings = Matching.query.filter(Matching.email_send == False).limit(3)
+	for m in matchings:
+		send_matching_email(m)
+		time.sleep(3)
+	return "Success!"
+
+@admin.route('/admin/set_ps_matchable_if_not_max_buddies', methods=('GET','POST'))
+def admin_set_ps_matchable_if_not_max_buddies():
+	users = User.query.filter(User.status == "p").all()
+	for u in users:
+		m = Matching.query.filter(Matching.ps_id == u.id).all()
+		if m.size < u.max_buddies:
+			u.matchable = True
+	return "Success!"
 
 
 @admin.route('/admin/pairs_all', methods=('GET','POST'))
