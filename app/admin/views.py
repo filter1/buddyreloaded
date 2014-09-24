@@ -89,7 +89,7 @@ def admin_set_ps_matchable_if_not_max_buddies():
 	users = User.query.filter(User.status == "p").all()
 	for u in users:
 		m = Matching.query.filter(Matching.ps_id == u.id).all()
-		if m.size < u.max_buddies:
+		if m.length < u.max_buddies:
 			u.matchable = True
 	return "Success!"
 
