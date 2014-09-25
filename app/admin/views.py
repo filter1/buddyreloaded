@@ -91,6 +91,7 @@ def admin_set_ps_matchable_if_not_max_buddies():
 		m = Matching.query.filter(Matching.ps_id == u.id).all()
 		if len(m) < u.max_buddies:
 			u.matchable = True
+			db.session.commit()
 	return "Success!"
 
 
