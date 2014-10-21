@@ -116,6 +116,24 @@ def admin_reg_all():
 		for u in users:
 			emails += u.email + '; '
 
+		return render_template('admin/registrations.html', users=users, emails=emails)@admin.route('/admin/registrations', methods=('GET','POST'))
+
+@admin.route('/admin/registrations_ps', methods=('GET','POST'))
+def admin_reg_ps():
+		users = User.query.filter(User.status == 'p').all()
+		emails = ''
+		for u in users:
+			emails += u.email + '; '
+
+		return render_template('admin/registrations.html', users=users, emails=emails)
+
+@admin.route('/admin/registrations_is', methods=('GET','POST'))
+def admin_reg_is():
+		users = User.query.filter(User.status == 'i').all()
+		emails = ''
+		for u in users:
+			emails += u.email + '; '
+
 		return render_template('admin/registrations.html', users=users, emails=emails)
 
 
