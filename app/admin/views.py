@@ -116,7 +116,8 @@ def admin_reg_all():
 		for u in users:
 			emails += u.email + '; '
 
-		return render_template('admin/registrations.html', users=users, emails=emails)@admin.route('/admin/registrations', methods=('GET','POST'))
+		return render_template('admin/registrations.html', users=users, emails=emails)
+
 
 @admin.route('/admin/registrations_ps', methods=('GET','POST'))
 def admin_reg_ps():
