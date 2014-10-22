@@ -98,14 +98,14 @@ def admin_set_ps_matchable_if_not_max_buddies():
 @admin.route('/admin/pairs_all', methods=('GET','POST'))
 def admin_match_show_all():
 		matchings = Matching.query.all()
-		
+
 		emails = ''
 		for m in matchings:
 			emails += m.ps.email + '; '
 			emails += m.iis.email + '; '
 
 
-		return render_template('admin/matching_show_all.html', matchings=matchings, users=users)
+		return render_template('admin/matching_show_all.html', matchings=matchings, emails=emails)
 
 
 @admin.route('/admin/pairs', methods=('GET','POST'))
